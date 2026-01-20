@@ -2459,12 +2459,33 @@ ACTION ITEMS:
             st.dataframe(filtered_df.head(100), use_container_width=True, height=400)
             st.markdown('</div>', unsafe_allow_html=True)
     
-st.markdown("""
-<div style="background: white; padding: 20px; text-align: center; border: 2px solid gold; border-radius: 10px;">
-    <h2 style="color: black;">🏬 Dubai Mall Analytics Dashboard</h2>
-    <p style="color: gray;">Premium Retail Intelligence Platform</p>
-</div>
-""", unsafe_allow_html=True)
+# ========================================
+    # FOOTER - EMOJI SEPARATOR VERSION
+    # ========================================
+    st.markdown("---")
+    st.markdown(" ")
+    
+    col1, col2, col3 = st.columns([1, 3, 1])
+    with col2:
+        st.markdown("""
+        <table style="width: 100%; text-align: center; border-collapse: collapse;">
+            <tr>
+                <td style="padding: 20px; background: linear-gradient(90deg, #B8860B, #DAA520); border-radius: 10px;">
+                    <span style="font-size: 28px; color: white; font-weight: bold;">🏬 Dubai Mall Analytics Dashboard</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 15px; color: #1A1A2E;">
+                    <strong>Premium Retail Intelligence Platform</strong> • Full Analytics Suite
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 10px; color: #6B7280; font-size: 12px;">
+                    © 2024 Dubai Mall Management | Dashboard v3.0
+                </td>
+            </tr>
+        </table>
+        """, unsafe_allow_html=True)
 
 # ============================================
 # RUN
