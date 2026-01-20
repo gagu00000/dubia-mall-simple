@@ -19,139 +19,173 @@ st.set_page_config(
 )
 
 # ============================================
-# CUSTOM CSS - DUBAI LUXURY THEME
+# PROJECTOR-FRIENDLY LIGHT THEME CSS
 # ============================================
 st.markdown("""
 <style>
     /* Import Google Fonts */
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
     
-    /* Root Variables */
+    /* Root Variables - LIGHT PROJECTOR THEME */
     :root {
-        --gold-primary: #D4AF37;
-        --gold-light: #F4E4BC;
-        --gold-dark: #B8960C;
-        --navy-dark: #0A1628;
-        --navy-medium: #1A2742;
-        --navy-light: #2D3E5F;
-        --white: #FFFFFF;
-        --off-white: #F8F9FA;
-        --gray-light: #E9ECEF;
-        --success: #28A745;
-        --danger: #DC3545;
-        --warning: #FFC107;
+        --gold-primary: #B8860B;
+        --gold-dark: #8B6914;
+        --gold-light: #DAA520;
+        --bg-primary: #FFFFFF;
+        --bg-secondary: #F8F9FA;
+        --bg-card: #FFFFFF;
+        --text-primary: #1A1A2E;
+        --text-secondary: #4A4A6A;
+        --text-muted: #6B7280;
+        --border-color: #E5E7EB;
+        --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+        --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
+        --shadow-lg: 0 8px 25px rgba(0,0,0,0.18);
+        --success: #059669;
+        --danger: #DC2626;
+        --info: #2563EB;
+        --warning: #D97706;
     }
     
-    /* Main App Styling */
+    /* Main App Background - LIGHT */
     .stApp {
-        background: linear-gradient(135deg, #0A1628 0%, #1A2742 50%, #0A1628 100%);
+        background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
     }
     
-    /* Hide Streamlit Branding */
+    /* Hide Streamlit Elements */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
     header {visibility: hidden;}
     
-    /* Custom Header */
+    /* Main Header */
     .main-header {
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 39, 66, 0.9) 100%);
-        border: 1px solid rgba(212, 175, 55, 0.3);
+        background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
         border-radius: 20px;
-        padding: 30px 40px;
+        padding: 35px 45px;
         margin-bottom: 30px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        box-shadow: var(--shadow-lg);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .main-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(184, 134, 11, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
     }
     
     .main-header h1 {
         font-family: 'Playfair Display', serif;
         font-size: 2.8rem;
         font-weight: 700;
-        background: linear-gradient(135deg, #D4AF37 0%, #F4E4BC 50%, #D4AF37 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #DAA520;
         margin: 0;
-        letter-spacing: 2px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        position: relative;
+        z-index: 1;
     }
     
     .main-header p {
-        font-family: 'Inter', sans-serif;
-        color: #B8C5D9;
+        font-family: 'Poppins', sans-serif;
+        color: #E2E8F0;
         font-size: 1.1rem;
         margin-top: 10px;
+        font-weight: 300;
         letter-spacing: 1px;
+        position: relative;
+        z-index: 1;
     }
     
-    /* KPI Cards */
-    .kpi-container {
+    /* KPI CARDS - SQUARE DESIGN */
+    .kpi-row {
         display: flex;
         gap: 20px;
         margin-bottom: 30px;
+        flex-wrap: wrap;
     }
     
     .kpi-card {
-        background: linear-gradient(145deg, #1A2742 0%, #2D3E5F 100%);
-        border: 1px solid rgba(212, 175, 55, 0.2);
+        background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+        border: 2px solid #E5E7EB;
         border-radius: 16px;
-        padding: 25px;
+        padding: 24px;
         flex: 1;
+        min-width: 180px;
+        max-width: 200px;
+        aspect-ratio: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: var(--shadow-md);
+        transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
     
     .kpi-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(212, 175, 55, 0.5);
-        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.15);
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-lg);
+        border-color: #B8860B;
     }
     
-    .kpi-card::before {
+    .kpi-card::after {
         content: '';
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
-        width: 4px;
-        height: 100%;
-        background: linear-gradient(180deg, #D4AF37 0%, #B8960C 100%);
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #B8860B, #DAA520);
     }
     
     .kpi-icon {
         font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
-    
-    .kpi-label {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
-        color: #8B9DC3;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-weight: 500;
+        margin-bottom: 8px;
+        filter: grayscale(0);
     }
     
     .kpi-value {
-        font-family: 'Playfair Display', serif;
-        font-size: 2.2rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.8rem;
         font-weight: 700;
-        color: #FFFFFF;
-        margin: 8px 0;
+        color: #1A1A2E;
+        margin: 5px 0;
+        line-height: 1.2;
+    }
+    
+    .kpi-label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.75rem;
+        color: #6B7280;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
     }
     
     .kpi-delta {
-        font-family: 'Inter', sans-serif;
-        font-size: 0.9rem;
-        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-top: 5px;
+        padding: 3px 10px;
+        border-radius: 20px;
     }
     
     .kpi-delta.positive {
-        color: #28A745;
+        color: #059669;
+        background: rgba(5, 150, 105, 0.1);
     }
     
     .kpi-delta.negative {
-        color: #DC3545;
+        color: #DC2626;
+        background: rgba(220, 38, 38, 0.1);
     }
     
     /* Section Headers */
@@ -159,10 +193,10 @@ st.markdown("""
         font-family: 'Playfair Display', serif;
         font-size: 1.6rem;
         font-weight: 600;
-        color: #D4AF37;
-        margin: 30px 0 20px 0;
-        padding-bottom: 10px;
-        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        color: #1A1A2E;
+        margin: 35px 0 20px 0;
+        padding-bottom: 12px;
+        border-bottom: 3px solid #B8860B;
         display: flex;
         align-items: center;
         gap: 12px;
@@ -170,357 +204,325 @@ st.markdown("""
     
     /* Chart Containers */
     .chart-container {
-        background: linear-gradient(145deg, #1A2742 0%, #0A1628 100%);
-        border: 1px solid rgba(212, 175, 55, 0.15);
+        background: #FFFFFF;
+        border: 1px solid #E5E7EB;
         border-radius: 16px;
         padding: 25px;
         margin-bottom: 25px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        box-shadow: var(--shadow-sm);
+    }
+    
+    .chart-container:hover {
+        box-shadow: var(--shadow-md);
     }
     
     .chart-title {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-size: 1.1rem;
         font-weight: 600;
-        color: #FFFFFF;
-        margin-bottom: 20px;
+        color: #1A1A2E;
+        margin-bottom: 15px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #F3F4F6;
         display: flex;
         align-items: center;
         gap: 10px;
     }
     
-    /* Sidebar Styling */
+    /* Filter Box */
+    .filter-box {
+        background: linear-gradient(145deg, #FEF3C7 0%, #FDE68A 100%);
+        border: 1px solid #F59E0B;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+    
+    .filter-box label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #92400E;
+    }
+    
+    /* Sidebar - LIGHT THEME */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #0A1628 0%, #1A2742 100%);
-        border-right: 1px solid rgba(212, 175, 55, 0.2);
+        background: linear-gradient(180deg, #1A1A2E 0%, #16213E 100%);
     }
     
     [data-testid="stSidebar"] .stMarkdown {
-        color: #B8C5D9;
+        color: #E2E8F0;
+    }
+    
+    [data-testid="stSidebar"] label {
+        color: #E2E8F0 !important;
+        font-family: 'Poppins', sans-serif;
     }
     
     .sidebar-header {
         font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         font-weight: 600;
-        color: #D4AF37;
+        color: #DAA520;
         text-align: center;
-        padding: 20px 0;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-        margin-bottom: 20px;
+        padding: 25px 0;
+        border-bottom: 2px solid rgba(218, 165, 32, 0.3);
+        margin-bottom: 25px;
     }
     
-    /* Selectbox Styling */
+    /* Selectbox & Input Styling */
     .stSelectbox > div > div {
-        background-color: #1A2742;
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        border-radius: 8px;
-        color: #FFFFFF;
+        background-color: #FFFFFF;
+        border: 2px solid #E5E7EB;
+        border-radius: 10px;
+        font-family: 'Poppins', sans-serif;
     }
     
     .stSelectbox > div > div:hover {
-        border-color: #D4AF37;
+        border-color: #B8860B;
     }
     
-    /* Multiselect Styling */
     .stMultiSelect > div > div {
-        background-color: #1A2742;
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        border-radius: 8px;
-    }
-    
-    /* Date Input Styling */
-    .stDateInput > div > div {
-        background-color: #1A2742;
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        border-radius: 8px;
-    }
-    
-    /* Slider Styling */
-    .stSlider > div > div > div {
-        background-color: #D4AF37;
-    }
-    
-    /* Metric Cards */
-    [data-testid="stMetricValue"] {
-        font-family: 'Playfair Display', serif;
-        font-size: 2rem;
-        font-weight: 700;
-        color: #FFFFFF;
-    }
-    
-    [data-testid="stMetricLabel"] {
-        font-family: 'Inter', sans-serif;
-        color: #8B9DC3;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        background-color: #FFFFFF;
+        border: 2px solid #E5E7EB;
+        border-radius: 10px;
     }
     
     /* Tabs Styling */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
-        background-color: #1A2742;
+        background-color: #F3F4F6;
         border-radius: 12px;
         padding: 8px;
     }
     
     .stTabs [data-baseweb="tab"] {
-        font-family: 'Inter', sans-serif;
-        font-weight: 500;
-        color: #8B9DC3;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #4A4A6A;
         border-radius: 8px;
-        padding: 10px 20px;
+        padding: 12px 24px;
+        background: transparent;
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #D4AF37 0%, #B8960C 100%);
-        color: #0A1628;
+        background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%);
+        color: #FFFFFF !important;
+        box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
     }
     
-    /* Data Table Styling */
+    /* Data Table */
     .dataframe {
-        font-family: 'Inter', sans-serif;
-        border: none !important;
+        font-family: 'Poppins', sans-serif !important;
+        border-radius: 10px;
+        overflow: hidden;
     }
     
     .dataframe th {
-        background: linear-gradient(135deg, #D4AF37 0%, #B8960C 100%) !important;
-        color: #0A1628 !important;
+        background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%) !important;
+        color: #DAA520 !important;
         font-weight: 600 !important;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 0.85rem !important;
+        letter-spacing: 0.5px;
+        font-size: 0.8rem !important;
+        padding: 12px !important;
     }
     
     .dataframe td {
-        background-color: #1A2742 !important;
-        color: #FFFFFF !important;
-        border-color: rgba(212, 175, 55, 0.1) !important;
+        background-color: #FFFFFF !important;
+        color: #1A1A2E !important;
+        border-color: #E5E7EB !important;
+        padding: 10px !important;
+        font-size: 0.9rem !important;
     }
     
-    /* Expander Styling */
+    .dataframe tr:nth-child(even) td {
+        background-color: #F9FAFB !important;
+    }
+    
+    /* Expander */
     .streamlit-expanderHeader {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-weight: 600;
-        color: #D4AF37;
-        background-color: #1A2742;
-        border: 1px solid rgba(212, 175, 55, 0.3);
-        border-radius: 8px;
+        color: #1A1A2E;
+        background-color: #F3F4F6;
+        border: 1px solid #E5E7EB;
+        border-radius: 10px;
     }
     
-    /* Info Box */
-    .info-box {
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(26, 39, 66, 0.8) 100%);
-        border: 1px solid rgba(212, 175, 55, 0.3);
+    /* Info Boxes */
+    .insight-card {
+        background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+        border-left: 5px solid #B8860B;
         border-radius: 12px;
         padding: 20px;
         margin: 15px 0;
+        box-shadow: var(--shadow-sm);
     }
     
-    .info-box h4 {
-        font-family: 'Playfair Display', serif;
-        color: #D4AF37;
+    .insight-card h4 {
+        font-family: 'Poppins', sans-serif;
+        color: #1A1A2E;
+        font-weight: 600;
         margin-bottom: 10px;
+        font-size: 1rem;
     }
     
-    .info-box p {
-        font-family: 'Inter', sans-serif;
-        color: #B8C5D9;
+    .insight-card p {
+        font-family: 'Poppins', sans-serif;
+        color: #4A4A6A;
         font-size: 0.95rem;
-        line-height: 1.6;
+        margin: 5px 0;
+        line-height: 1.5;
     }
     
-    /* Scrollbar Styling */
-    ::-webkit-scrollbar {
-        width: 8px;
-        height: 8px;
+    .insight-card strong {
+        color: #B8860B;
     }
     
-    ::-webkit-scrollbar-track {
-        background: #0A1628;
-    }
-    
-    ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #D4AF37 0%, #B8960C 100%);
-        border-radius: 4px;
-    }
-    
-    ::-webkit-scrollbar-thumb:hover {
-        background: #F4E4BC;
-    }
-    
-    /* Animation Keyframes */
-    @keyframes fadeInUp {
-        from {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-    
-    @keyframes shimmer {
-        0% {
-            background-position: -200% 0;
-        }
-        100% {
-            background-position: 200% 0;
-        }
-    }
-    
-    .animate-fade-in {
-        animation: fadeInUp 0.6s ease-out forwards;
-    }
-    
-    /* Tooltip Styling */
-    .tooltip {
-        position: relative;
+    /* Metric Highlight */
+    .metric-highlight {
+        background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+        border: 2px solid #F59E0B;
+        border-radius: 10px;
+        padding: 15px 20px;
         display: inline-block;
+        margin: 5px;
     }
     
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        background-color: #D4AF37;
-        color: #0A1628;
-        text-align: center;
-        padding: 8px 12px;
-        border-radius: 6px;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        margin-left: -60px;
-        opacity: 0;
-        transition: opacity 0.3s;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.85rem;
+    .metric-highlight .value {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #92400E;
     }
     
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-        opacity: 1;
+    .metric-highlight .label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.8rem;
+        color: #B45309;
+        text-transform: uppercase;
     }
     
-    /* Footer Styling */
+    /* Footer */
     .custom-footer {
-        background: linear-gradient(135deg, #1A2742 0%, #0A1628 100%);
-        border-top: 1px solid rgba(212, 175, 55, 0.3);
+        background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+        border-radius: 16px;
         padding: 30px;
         margin-top: 50px;
-        border-radius: 16px 16px 0 0;
         text-align: center;
+        box-shadow: var(--shadow-lg);
     }
     
     .custom-footer p {
-        font-family: 'Inter', sans-serif;
-        color: #8B9DC3;
+        font-family: 'Poppins', sans-serif;
+        color: #94A3B8;
         margin: 5px 0;
     }
     
     .custom-footer .gold-text {
-        color: #D4AF37;
+        color: #DAA520;
         font-weight: 600;
     }
     
-    /* Loading Spinner */
-    .stSpinner > div {
-        border-color: #D4AF37 !important;
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
     }
     
-    /* Progress Bar */
-    .stProgress > div > div > div > div {
-        background: linear-gradient(90deg, #D4AF37 0%, #F4E4BC 50%, #D4AF37 100%);
+    ::-webkit-scrollbar-track {
+        background: #F1F5F9;
+        border-radius: 5px;
     }
     
-    /* Badge Styling */
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #B8860B 0%, #DAA520 100%);
+        border-radius: 5px;
+    }
+    
+    /* Animation */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .animate-in {
+        animation: fadeIn 0.5s ease-out;
+    }
+    
+    /* Chart Filter Row */
+    .chart-filter-row {
+        background: #F8FAFC;
+        border: 1px solid #E5E7EB;
+        border-radius: 10px;
+        padding: 12px 15px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .chart-filter-row label {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: #4A4A6A;
+    }
+    
+    /* Badge */
     .badge {
         display: inline-block;
         padding: 4px 12px;
         border-radius: 20px;
-        font-family: 'Inter', sans-serif;
-        font-size: 0.8rem;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.75rem;
         font-weight: 600;
     }
     
     .badge-gold {
-        background: linear-gradient(135deg, #D4AF37 0%, #B8960C 100%);
-        color: #0A1628;
+        background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%);
+        color: #FFFFFF;
     }
     
     .badge-success {
-        background: rgba(40, 167, 69, 0.2);
-        color: #28A745;
-        border: 1px solid #28A745;
+        background: #D1FAE5;
+        color: #059669;
     }
     
     .badge-danger {
-        background: rgba(220, 53, 69, 0.2);
-        color: #DC3545;
-        border: 1px solid #DC3545;
+        background: #FEE2E2;
+        color: #DC2626;
     }
     
-    /* Glassmorphism Effect */
-    .glass-card {
-        background: rgba(26, 39, 66, 0.7);
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        border-radius: 16px;
-        padding: 25px;
-    }
-    
-    /* Pulse Animation for Live Data */
-    .pulse {
-        animation: pulse 2s infinite;
-    }
-    
-    @keyframes pulse {
-        0% {
-            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
-        }
-        70% {
-            box-shadow: 0 0 0 15px rgba(212, 175, 55, 0);
-        }
-        100% {
-            box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
-        }
-    }
-    
-    /* Responsive Design */
+    /* Responsive */
     @media (max-width: 768px) {
         .main-header h1 {
             font-size: 1.8rem;
         }
-        
-        .kpi-value {
-            font-size: 1.6rem;
+        .kpi-card {
+            min-width: 150px;
+            max-width: 150px;
         }
-        
-        .section-header {
-            font-size: 1.3rem;
+        .kpi-value {
+            font-size: 1.4rem;
         }
     }
 </style>
 """, unsafe_allow_html=True)
 
 # ============================================
-# DATA LOADING AND PREPROCESSING
+# DATA LOADING
 # ============================================
 @st.cache_data
 def load_data():
     """Load and preprocess the Dubai Mall dataset"""
     df = pd.read_csv('dubai_mall_simple.csv')
-    
-    # Convert date column
     df['date'] = pd.to_datetime(df['date'])
-    
-    # Extract additional time features
     df['week'] = df['date'].dt.isocalendar().week
     df['day_of_month'] = df['date'].dt.day
     df['quarter'] = df['date'].dt.quarter
     
-    # Create floor labels
     floor_mapping = {'LG': 'Lower Ground', 'G': 'Ground', '1': 'Level 1', '2': 'Level 2', '3': 'Level 3'}
     df['floor_label'] = df['floor'].map(floor_mapping)
     
@@ -530,8 +532,10 @@ def load_data():
 # HELPER FUNCTIONS
 # ============================================
 def format_currency(value):
-    """Format number as AED currency"""
-    if value >= 1_000_000:
+    """Format number as AED currency with M/K suffix"""
+    if value >= 1_000_000_000:
+        return f"AED {value/1_000_000_000:.2f}B"
+    elif value >= 1_000_000:
         return f"AED {value/1_000_000:.2f}M"
     elif value >= 1_000:
         return f"AED {value/1_000:.1f}K"
@@ -539,27 +543,34 @@ def format_currency(value):
         return f"AED {value:.0f}"
 
 def format_number(value):
-    """Format large numbers"""
-    if value >= 1_000_000:
+    """Format large numbers with M/K suffix"""
+    if value >= 1_000_000_000:
+        return f"{value/1_000_000_000:.2f}B"
+    elif value >= 1_000_000:
         return f"{value/1_000_000:.2f}M"
     elif value >= 1_000:
         return f"{value/1_000:.1f}K"
     else:
         return f"{value:.0f}"
 
-def calculate_delta(current, previous):
-    """Calculate percentage change"""
-    if previous == 0:
-        return 0
-    return ((current - previous) / previous) * 100
+def format_value_short(value):
+    """Format values for KPI display"""
+    if value >= 1_000_000_000:
+        return f"{value/1_000_000_000:.2f}B"
+    elif value >= 1_000_000:
+        return f"{value/1_000_000:.2f}M"
+    elif value >= 1_000:
+        return f"{value/1_000:.1f}K"
+    else:
+        return f"{value:.0f}"
 
-def create_kpi_card(icon, label, value, delta=None, delta_label="vs prev period"):
-    """Create a styled KPI card"""
+def create_kpi_html(icon, label, value, delta=None):
+    """Create styled KPI card HTML"""
     delta_html = ""
     if delta is not None:
         delta_class = "positive" if delta >= 0 else "negative"
-        delta_symbol = "↑" if delta >= 0 else "↓"
-        delta_html = f'<div class="kpi-delta {delta_class}">{delta_symbol} {abs(delta):.1f}% {delta_label}</div>'
+        delta_symbol = "▲" if delta >= 0 else "▼"
+        delta_html = f'<div class="kpi-delta {delta_class}">{delta_symbol} {abs(delta):.1f}%</div>'
     
     return f"""
     <div class="kpi-card">
@@ -571,54 +582,46 @@ def create_kpi_card(icon, label, value, delta=None, delta_label="vs prev period"
     """
 
 # ============================================
-# CHART THEME
+# CHART THEME - PROJECTOR FRIENDLY
 # ============================================
-chart_theme = {
-    'paper_bgcolor': 'rgba(0,0,0,0)',
-    'plot_bgcolor': 'rgba(0,0,0,0)',
-    'font': {'family': 'Inter, sans-serif', 'color': '#B8C5D9'},
-    'title': {'font': {'family': 'Playfair Display, serif', 'color': '#D4AF37', 'size': 18}},
-    'xaxis': {
-        'gridcolor': 'rgba(212, 175, 55, 0.1)',
-        'linecolor': 'rgba(212, 175, 55, 0.3)',
-        'tickfont': {'color': '#8B9DC3'}
-    },
-    'yaxis': {
-        'gridcolor': 'rgba(212, 175, 55, 0.1)',
-        'linecolor': 'rgba(212, 175, 55, 0.3)',
-        'tickfont': {'color': '#8B9DC3'}
-    },
-    'legend': {'font': {'color': '#B8C5D9'}, 'bgcolor': 'rgba(26, 39, 66, 0.8)'},
-    'colorway': ['#D4AF37', '#4ECDC4', '#FF6B6B', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3', '#A8D8EA']
-}
-
-def apply_chart_theme(fig):
-    """Apply Dubai luxury theme to plotly figures"""
+def apply_chart_theme(fig, height=400):
+    """Apply projector-friendly theme to charts"""
     fig.update_layout(
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        font=dict(family='Inter, sans-serif', color='#B8C5D9'),
-        title=dict(font=dict(family='Playfair Display, serif', color='#D4AF37', size=18)),
+        paper_bgcolor='rgba(255,255,255,0)',
+        plot_bgcolor='rgba(255,255,255,0)',
+        font=dict(family='Poppins, sans-serif', color='#1A1A2E', size=12),
         xaxis=dict(
-            gridcolor='rgba(212, 175, 55, 0.1)',
-            linecolor='rgba(212, 175, 55, 0.3)',
-            tickfont=dict(color='#8B9DC3')
+            gridcolor='rgba(0,0,0,0.08)',
+            linecolor='#E5E7EB',
+            tickfont=dict(color='#4A4A6A', size=11),
+            title_font=dict(color='#1A1A2E', size=13, family='Poppins')
         ),
         yaxis=dict(
-            gridcolor='rgba(212, 175, 55, 0.1)',
-            linecolor='rgba(212, 175, 55, 0.3)',
-            tickfont=dict(color='#8B9DC3')
+            gridcolor='rgba(0,0,0,0.08)',
+            linecolor='#E5E7EB',
+            tickfont=dict(color='#4A4A6A', size=11),
+            title_font=dict(color='#1A1A2E', size=13, family='Poppins')
         ),
-        legend=dict(font=dict(color='#B8C5D9'), bgcolor='rgba(26, 39, 66, 0.8)'),
+        legend=dict(
+            font=dict(color='#1A1A2E', size=11),
+            bgcolor='rgba(255,255,255,0.9)',
+            bordercolor='#E5E7EB',
+            borderwidth=1
+        ),
         hoverlabel=dict(
-            bgcolor='#1A2742',
+            bgcolor='#1A1A2E',
             font_size=12,
-            font_family='Inter, sans-serif',
-            bordercolor='#D4AF37'
+            font_family='Poppins',
+            font_color='#FFFFFF',
+            bordercolor='#B8860B'
         ),
-        margin=dict(l=20, r=20, t=60, b=20)
+        margin=dict(l=20, r=20, t=40, b=20),
+        height=height
     )
     return fig
+
+# Color palette for charts
+CHART_COLORS = ['#B8860B', '#2563EB', '#059669', '#DC2626', '#7C3AED', '#DB2777', '#0891B2', '#EA580C']
 
 # ============================================
 # MAIN APPLICATION
@@ -628,14 +631,14 @@ def main():
     try:
         df = load_data()
     except FileNotFoundError:
-        st.error("⚠️ Data file 'dubai_mall_simple.csv' not found. Please ensure the file is in the same directory.")
+        st.error("⚠️ Data file 'dubai_mall_simple.csv' not found!")
         st.stop()
     
     # ========================================
-    # SIDEBAR
+    # SIDEBAR - Global Filters
     # ========================================
     with st.sidebar:
-        st.markdown('<div class="sidebar-header">🏬 Dubai Mall Analytics</div>', unsafe_allow_html=True)
+        st.markdown('<div class="sidebar-header">🏬 Dubai Mall<br>Analytics</div>', unsafe_allow_html=True)
         
         st.markdown("### 📅 Date Range")
         date_range = st.date_input(
@@ -645,37 +648,26 @@ def main():
             max_value=df['date'].max()
         )
         
-        st.markdown("### 🏪 Store Filters")
+        st.markdown("---")
+        st.markdown("### 🏪 Global Filters")
         
         # Category filter
-        categories = ['All'] + sorted(df['category'].unique().tolist())
-        selected_category = st.selectbox("Category", categories)
+        all_categories = ['All Categories'] + sorted(df['category'].unique().tolist())
+        selected_category = st.selectbox("Category", all_categories)
         
         # Floor filter
-        floors = ['All'] + sorted(df['floor'].unique().tolist())
-        selected_floor = st.selectbox("Floor", floors)
+        all_floors = ['All Floors'] + sorted(df['floor'].unique().tolist())
+        selected_floor = st.selectbox("Floor", all_floors)
         
-        # Store filter
-        if selected_category != 'All':
-            available_stores = df[df['category'] == selected_category]['store_name'].unique().tolist()
-        else:
-            available_stores = df['store_name'].unique().tolist()
-        
-        selected_stores = st.multiselect(
-            "Select Stores",
-            options=sorted(available_stores),
-            default=[]
-        )
-        
-        st.markdown("### 📊 View Options")
-        show_tourist_analysis = st.checkbox("Show Tourist Analysis", value=True)
-        show_store_details = st.checkbox("Show Store Details", value=True)
+        st.markdown("---")
+        st.markdown("### ⚙️ Display Options")
+        show_raw_data = st.checkbox("Show Raw Data Tables", value=False)
         
         st.markdown("---")
         st.markdown("""
-        <div style='text-align: center; color: #8B9DC3; font-size: 0.85rem;'>
-            <p>📍 Dubai Mall Dashboard</p>
-            <p>Data Period: Jan 2024</p>
+        <div style='text-align: center; padding: 15px;'>
+            <p style='color: #94A3B8; font-size: 0.8rem;'>📊 Dubai Mall Dashboard</p>
+            <p style='color: #DAA520; font-size: 0.9rem; font-weight: 600;'>v2.0 - Projector Edition</p>
         </div>
         """, unsafe_allow_html=True)
     
@@ -684,24 +676,17 @@ def main():
     # ========================================
     filtered_df = df.copy()
     
-    # Date filter
     if len(date_range) == 2:
         filtered_df = filtered_df[
             (filtered_df['date'].dt.date >= date_range[0]) & 
             (filtered_df['date'].dt.date <= date_range[1])
         ]
     
-    # Category filter
-    if selected_category != 'All':
+    if selected_category != 'All Categories':
         filtered_df = filtered_df[filtered_df['category'] == selected_category]
     
-    # Floor filter
-    if selected_floor != 'All':
+    if selected_floor != 'All Floors':
         filtered_df = filtered_df[filtered_df['floor'] == selected_floor]
-    
-    # Store filter
-    if selected_stores:
-        filtered_df = filtered_df[filtered_df['store_name'].isin(selected_stores)]
     
     # ========================================
     # HEADER
@@ -709,14 +694,14 @@ def main():
     st.markdown("""
     <div class="main-header">
         <h1>🏬 Dubai Mall Analytics Dashboard</h1>
-        <p>Real-time Retail Performance Intelligence | Premium Analytics Suite</p>
+        <p>Real-time Retail Performance Intelligence • Premium Analytics Suite</p>
     </div>
     """, unsafe_allow_html=True)
     
     # ========================================
-    # KEY METRICS
+    # KPI CARDS - FIXED SQUARE LAYOUT
     # ========================================
-    st.markdown('<div class="section-header">📊 Executive Summary</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header">📊 Key Performance Indicators</div>', unsafe_allow_html=True)
     
     # Calculate KPIs
     total_sales = filtered_df['sales_aed'].sum()
@@ -726,275 +711,359 @@ def main():
     avg_basket = filtered_df['avg_basket_aed'].mean()
     sales_per_sqft = filtered_df['sales_per_sqft'].mean()
     
-    # Create KPI cards
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    # KPI Row
+    kpi_html = '<div class="kpi-row">'
+    kpi_html += create_kpi_html("💰", "Total Sales", format_value_short(total_sales), 12.5)
+    kpi_html += create_kpi_html("👥", "Mall Footfall", format_value_short(total_footfall), 8.3)
+    kpi_html += create_kpi_html("🛒", "Transactions", format_value_short(total_transactions), 15.2)
+    kpi_html += create_kpi_html("📈", "Conversion", f"{avg_conversion:.1f}%", 3.2)
+    kpi_html += create_kpi_html("🧺", "Avg Basket", format_value_short(avg_basket), 5.8)
+    kpi_html += create_kpi_html("📐", "Sales/Sqft", format_value_short(sales_per_sqft), 7.1)
+    kpi_html += '</div>'
     
-    with col1:
-        st.markdown(create_kpi_card("💰", "Total Sales", format_currency(total_sales), 12.5), unsafe_allow_html=True)
-    
-    with col2:
-        st.markdown(create_kpi_card("👥", "Mall Footfall", format_number(total_footfall), 8.3), unsafe_allow_html=True)
-    
-    with col3:
-        st.markdown(create_kpi_card("🛒", "Transactions", format_number(total_transactions), 15.2), unsafe_allow_html=True)
-    
-    with col4:
-        st.markdown(create_kpi_card("📈", "Conversion Rate", f"{avg_conversion:.1f}%", 3.2), unsafe_allow_html=True)
-    
-    with col5:
-        st.markdown(create_kpi_card("🧺", "Avg Basket", format_currency(avg_basket), 5.8), unsafe_allow_html=True)
-    
-    with col6:
-        st.markdown(create_kpi_card("📐", "Sales/Sqft", format_currency(sales_per_sqft), 7.1), unsafe_allow_html=True)
-    
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown(kpi_html, unsafe_allow_html=True)
     
     # ========================================
-    # MAIN TABS
+    # TABS
     # ========================================
     tab1, tab2, tab3, tab4, tab5 = st.tabs([
-        "📈 Sales Overview", 
-        "👥 Footfall Analytics", 
+        "📈 Sales Analytics", 
+        "👥 Footfall Insights", 
         "🏪 Store Performance",
-        "📊 Category Insights",
-        "🎯 Deep Dive Analysis"
+        "📊 Category Analysis",
+        "🎯 Deep Insights"
     ])
     
     # ========================================
-    # TAB 1: SALES OVERVIEW
+    # TAB 1: SALES ANALYTICS
     # ========================================
     with tab1:
-        col1, col2 = st.columns([2, 1])
+        # === CHART 1: Daily Sales Trend ===
+        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+        st.markdown('<div class="chart-title">📈 Daily Sales Trend</div>', unsafe_allow_html=True)
         
-        with col1:
-            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">📈 Daily Sales Trend</div>', unsafe_allow_html=True)
-            
-            daily_sales = filtered_df.groupby('date').agg({
-                'sales_aed': 'sum',
-                'transactions': 'sum'
-            }).reset_index()
-            
-            fig = make_subplots(specs=[[{"secondary_y": True}]])
-            
+        # Individual Filter for this chart
+        col_f1, col_f2, col_f3 = st.columns([2, 2, 4])
+        with col_f1:
+            trend_category = st.selectbox(
+                "Filter by Category",
+                ['All'] + sorted(filtered_df['category'].unique().tolist()),
+                key='trend_cat'
+            )
+        with col_f2:
+            trend_metric = st.selectbox(
+                "Select Metric",
+                ['Sales + Transactions', 'Sales Only', 'Transactions Only'],
+                key='trend_metric'
+            )
+        
+        # Filter data for this chart
+        chart1_df = filtered_df.copy()
+        if trend_category != 'All':
+            chart1_df = chart1_df[chart1_df['category'] == trend_category]
+        
+        daily_sales = chart1_df.groupby('date').agg({
+            'sales_aed': 'sum',
+            'transactions': 'sum'
+        }).reset_index()
+        
+        fig = make_subplots(specs=[[{"secondary_y": True}]])
+        
+        if trend_metric in ['Sales + Transactions', 'Sales Only']:
             fig.add_trace(
                 go.Scatter(
                     x=daily_sales['date'],
                     y=daily_sales['sales_aed'],
                     name='Sales (AED)',
-                    line=dict(color='#D4AF37', width=3),
+                    line=dict(color='#B8860B', width=3),
                     fill='tozeroy',
-                    fillcolor='rgba(212, 175, 55, 0.1)'
+                    fillcolor='rgba(184, 134, 11, 0.15)'
                 ),
                 secondary_y=False
             )
-            
+        
+        if trend_metric in ['Sales + Transactions', 'Transactions Only']:
             fig.add_trace(
                 go.Bar(
                     x=daily_sales['date'],
                     y=daily_sales['transactions'],
                     name='Transactions',
-                    marker_color='rgba(78, 205, 196, 0.6)',
-                    opacity=0.7
+                    marker_color='rgba(37, 99, 235, 0.7)',
+                    opacity=0.8
                 ),
                 secondary_y=True
             )
-            
-            fig = apply_chart_theme(fig)
-            fig.update_layout(
-                height=400,
-                yaxis_title='Sales (AED)',
-                yaxis2_title='Transactions',
-                legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1)
-            )
-            
-            st.plotly_chart(fig, use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
         
-        with col2:
-            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">📅 Sales by Day of Week</div>', unsafe_allow_html=True)
-            
-            day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-            daily_pattern = filtered_df.groupby('day_name')['sales_aed'].sum().reindex(day_order)
-            
-            fig = go.Figure(go.Bar(
-                x=daily_pattern.values,
-                y=daily_pattern.index,
-                orientation='h',
-                marker=dict(
-                    color=daily_pattern.values,
-                    colorscale=[[0, '#1A2742'], [0.5, '#D4AF37'], [1, '#F4E4BC']],
-                    line=dict(color='#D4AF37', width=1)
-                )
-            ))
-            
-            fig = apply_chart_theme(fig)
-            fig.update_layout(height=400, xaxis_title='Total Sales (AED)')
-            
-            st.plotly_chart(fig, use_container_width=True)
-            st.markdown('</div>', unsafe_allow_html=True)
+        fig = apply_chart_theme(fig, height=420)
+        fig.update_layout(
+            yaxis_title='Sales (AED)',
+            yaxis2_title='Transactions',
+            legend=dict(orientation='h', yanchor='bottom', y=1.02, xanchor='right', x=1)
+        )
         
-        # Weekend vs Weekday Analysis
+        st.plotly_chart(fig, use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
+        
+        # === Row 2: Day of Week & Weekend Analysis ===
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">🗓️ Weekend vs Weekday Performance</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">📅 Sales by Day of Week</div>', unsafe_allow_html=True)
             
-            weekend_analysis = filtered_df.groupby('is_weekend').agg({
-                'sales_aed': 'sum',
-                'transactions': 'sum',
-                'conversion_rate': 'mean'
-            }).reset_index()
-            weekend_analysis['type'] = weekend_analysis['is_weekend'].map({0: 'Weekday', 1: 'Weekend'})
+            # Filter for this chart
+            dow_floor = st.selectbox(
+                "Filter by Floor",
+                ['All'] + sorted(filtered_df['floor'].unique().tolist()),
+                key='dow_floor'
+            )
             
-            fig = go.Figure()
+            chart2_df = filtered_df.copy()
+            if dow_floor != 'All':
+                chart2_df = chart2_df[chart2_df['floor'] == dow_floor]
             
-            fig.add_trace(go.Bar(
-                name='Sales (AED)',
-                x=weekend_analysis['type'],
-                y=weekend_analysis['sales_aed'],
-                marker_color='#D4AF37'
+            day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+            daily_pattern = chart2_df.groupby('day_name')['sales_aed'].sum().reindex(day_order)
+            
+            colors = ['#E5E7EB'] * 7
+            max_idx = daily_pattern.values.argmax()
+            colors[max_idx] = '#B8860B'
+            
+            fig = go.Figure(go.Bar(
+                x=daily_pattern.index,
+                y=daily_pattern.values,
+                marker_color=colors,
+                marker_line_color='#1A1A2E',
+                marker_line_width=1,
+                text=[format_value_short(x) for x in daily_pattern.values],
+                textposition='outside',
+                textfont=dict(color='#1A1A2E', size=11, family='Poppins')
             ))
             
-            fig = apply_chart_theme(fig)
-            fig.update_layout(height=350, xaxis_title='', yaxis_title='Total Sales (AED)')
+            fig = apply_chart_theme(fig, height=380)
+            fig.update_layout(yaxis_title='Total Sales (AED)')
             
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
         with col2:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">💳 Hourly Transaction Pattern</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">🗓️ Weekend vs Weekday</div>', unsafe_allow_html=True)
             
-            # Simulate hourly data based on conversion patterns
-            hours = list(range(10, 23))
-            hourly_pattern = [30, 45, 65, 80, 75, 70, 85, 95, 100, 90, 75, 55, 40]
+            # Filter for this chart
+            ww_category = st.selectbox(
+                "Filter by Category",
+                ['All'] + sorted(filtered_df['category'].unique().tolist()),
+                key='ww_cat'
+            )
             
-            fig = go.Figure(go.Scatter(
-                x=hours,
-                y=hourly_pattern,
-                mode='lines+markers',
-                line=dict(color='#4ECDC4', width=3, shape='spline'),
-                marker=dict(size=10, color='#D4AF37', line=dict(width=2, color='#FFFFFF')),
-                fill='tozeroy',
-                fillcolor='rgba(78, 205, 196, 0.1)'
+            chart3_df = filtered_df.copy()
+            if ww_category != 'All':
+                chart3_df = chart3_df[chart3_df['category'] == ww_category]
+            
+            weekend_data = chart3_df.groupby('is_weekend').agg({
+                'sales_aed': 'sum',
+                'transactions': 'sum',
+                'conversion_rate': 'mean'
+            }).reset_index()
+            weekend_data['type'] = weekend_data['is_weekend'].map({0: 'Weekday', 1: 'Weekend'})
+            
+            fig = go.Figure()
+            
+            fig.add_trace(go.Bar(
+                x=weekend_data['type'],
+                y=weekend_data['sales_aed'],
+                marker_color=['#2563EB', '#B8860B'],
+                text=[format_currency(x) for x in weekend_data['sales_aed']],
+                textposition='outside',
+                textfont=dict(size=14, family='Poppins', color='#1A1A2E')
             ))
             
-            fig = apply_chart_theme(fig)
-            fig.update_layout(
-                height=350,
-                xaxis_title='Hour of Day',
-                yaxis_title='Transaction Index',
-                xaxis=dict(tickmode='linear', dtick=2)
-            )
+            fig = apply_chart_theme(fig, height=380)
+            fig.update_layout(yaxis_title='Total Sales (AED)')
             
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
+        
+        # === Chart: Sales Distribution ===
+        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+        st.markdown('<div class="chart-title">📊 Sales Distribution by Category</div>', unsafe_allow_html=True)
+        
+        col_f1, col_f2 = st.columns([3, 5])
+        with col_f1:
+            dist_view = st.selectbox(
+                "View Type",
+                ['Pie Chart', 'Bar Chart', 'Treemap'],
+                key='dist_view'
+            )
+        
+        cat_sales = filtered_df.groupby('category')['sales_aed'].sum().sort_values(ascending=False)
+        
+        if dist_view == 'Pie Chart':
+            fig = go.Figure(go.Pie(
+                labels=cat_sales.index,
+                values=cat_sales.values,
+                hole=0.5,
+                marker=dict(colors=CHART_COLORS[:len(cat_sales)], line=dict(color='#FFFFFF', width=2)),
+                textinfo='label+percent',
+                textfont=dict(size=12, family='Poppins', color='#1A1A2E'),
+                hovertemplate="<b>%{label}</b><br>Sales: AED %{value:,.0f}<br>Share: %{percent}<extra></extra>"
+            ))
+            fig.add_annotation(
+                text=f"<b>Total<br>{format_value_short(cat_sales.sum())}</b>",
+                x=0.5, y=0.5, font=dict(size=16, color='#1A1A2E', family='Poppins'), showarrow=False
+            )
+        elif dist_view == 'Bar Chart':
+            fig = go.Figure(go.Bar(
+                x=cat_sales.values,
+                y=cat_sales.index,
+                orientation='h',
+                marker_color=CHART_COLORS[:len(cat_sales)],
+                text=[format_currency(x) for x in cat_sales.values],
+                textposition='inside',
+                textfont=dict(color='#FFFFFF', size=11, family='Poppins')
+            ))
+            fig.update_layout(yaxis=dict(categoryorder='total ascending'))
+        else:
+            fig = px.treemap(
+                names=cat_sales.index,
+                parents=[''] * len(cat_sales),
+                values=cat_sales.values,
+                color_discrete_sequence=CHART_COLORS
+            )
+            fig.update_traces(textfont=dict(size=14, family='Poppins'))
+        
+        fig = apply_chart_theme(fig, height=450)
+        st.plotly_chart(fig, use_container_width=True)
+        st.markdown('</div>', unsafe_allow_html=True)
     
     # ========================================
-    # TAB 2: FOOTFALL ANALYTICS
+    # TAB 2: FOOTFALL INSIGHTS
     # ========================================
     with tab2:
-        if show_tourist_analysis:
-            col1, col2 = st.columns(2)
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">🌍 Tourist vs Resident Footfall</div>', unsafe_allow_html=True)
             
-            with col1:
-                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                st.markdown('<div class="chart-title">🌍 Tourist vs Resident Footfall</div>', unsafe_allow_html=True)
-                
-                daily_footfall = filtered_df.groupby('date').agg({
+            # Filter
+            ff_agg = st.selectbox(
+                "Aggregation",
+                ['Daily', 'Weekly'],
+                key='ff_agg'
+            )
+            
+            if ff_agg == 'Daily':
+                footfall_data = filtered_df.groupby('date').agg({
                     'tourist_footfall': 'first',
                     'resident_footfall': 'first'
                 }).reset_index()
-                
-                fig = go.Figure()
-                
-                fig.add_trace(go.Scatter(
-                    x=daily_footfall['date'],
-                    y=daily_footfall['tourist_footfall'],
-                    name='Tourists',
-                    stackgroup='one',
-                    fillcolor='rgba(212, 175, 55, 0.6)',
-                    line=dict(color='#D4AF37', width=2)
-                ))
-                
-                fig.add_trace(go.Scatter(
-                    x=daily_footfall['date'],
-                    y=daily_footfall['resident_footfall'],
-                    name='Residents',
-                    stackgroup='one',
-                    fillcolor='rgba(78, 205, 196, 0.6)',
-                    line=dict(color='#4ECDC4', width=2)
-                ))
-                
-                fig = apply_chart_theme(fig)
-                fig.update_layout(height=400, yaxis_title='Footfall Count')
-                
-                st.plotly_chart(fig, use_container_width=True)
-                st.markdown('</div>', unsafe_allow_html=True)
+                x_col = 'date'
+            else:
+                filtered_df['week_start'] = filtered_df['date'] - pd.to_timedelta(filtered_df['date'].dt.dayofweek, unit='d')
+                footfall_data = filtered_df.groupby('week_start').agg({
+                    'tourist_footfall': 'sum',
+                    'resident_footfall': 'sum'
+                }).reset_index()
+                x_col = 'week_start'
             
-            with col2:
-                st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-                st.markdown('<div class="chart-title">📊 Visitor Composition</div>', unsafe_allow_html=True)
-                
-                avg_tourist_share = filtered_df['tourist_share'].mean() * 100
-                avg_resident_share = filtered_df['resident_share'].mean() * 100
-                
-                fig = go.Figure(go.Pie(
-                    labels=['Tourists', 'Residents'],
-                    values=[avg_tourist_share, avg_resident_share],
-                    hole=0.65,
-                    marker=dict(
-                        colors=['#D4AF37', '#4ECDC4'],
-                        line=dict(color='#0A1628', width=3)
-                    ),
-                    textinfo='label+percent',
-                    textfont=dict(size=14, color='#FFFFFF'),
-                    hovertemplate="<b>%{label}</b><br>%{percent}<extra></extra>"
-                ))
-                
-                fig.add_annotation(
-                    text=f"<b>Visitor<br>Mix</b>",
-                    x=0.5, y=0.5,
-                    font=dict(size=16, color='#D4AF37', family='Playfair Display, serif'),
-                    showarrow=False
-                )
-                
-                fig = apply_chart_theme(fig)
-                fig.update_layout(height=400, showlegend=True)
-                
-                st.plotly_chart(fig, use_container_width=True)
-                st.markdown('</div>', unsafe_allow_html=True)
+            fig = go.Figure()
+            
+            fig.add_trace(go.Scatter(
+                x=footfall_data[x_col],
+                y=footfall_data['tourist_footfall'],
+                name='Tourists',
+                stackgroup='one',
+                fillcolor='rgba(184, 134, 11, 0.7)',
+                line=dict(color='#B8860B', width=2)
+            ))
+            
+            fig.add_trace(go.Scatter(
+                x=footfall_data[x_col],
+                y=footfall_data['resident_footfall'],
+                name='Residents',
+                stackgroup='one',
+                fillcolor='rgba(37, 99, 235, 0.7)',
+                line=dict(color='#2563EB', width=2)
+            ))
+            
+            fig = apply_chart_theme(fig, height=400)
+            fig.update_layout(yaxis_title='Footfall Count')
+            
+            st.plotly_chart(fig, use_container_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)
+        
+        with col2:
+            st.markdown('<div class="chart-container">', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">📊 Visitor Composition</div>', unsafe_allow_html=True)
+            
+            avg_tourist = filtered_df['tourist_share'].mean() * 100
+            avg_resident = filtered_df['resident_share'].mean() * 100
+            
+            fig = go.Figure(go.Pie(
+                labels=['Tourists', 'Residents'],
+                values=[avg_tourist, avg_resident],
+                hole=0.65,
+                marker=dict(colors=['#B8860B', '#2563EB'], line=dict(color='#FFFFFF', width=3)),
+                textinfo='label+percent',
+                textfont=dict(size=14, family='Poppins', color='#1A1A2E'),
+                hovertemplate="<b>%{label}</b><br>Share: %{percent}<extra></extra>"
+            ))
+            
+            fig.add_annotation(
+                text=f"<b>Visitor<br>Mix</b>",
+                x=0.5, y=0.5,
+                font=dict(size=18, color='#1A1A2E', family='Playfair Display'),
+                showarrow=False
+            )
+            
+            fig = apply_chart_theme(fig, height=400)
+            
+            st.plotly_chart(fig, use_container_width=True)
+            st.markdown('</div>', unsafe_allow_html=True)
         
         # Footfall vs Sales Correlation
         st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-        st.markdown('<div class="chart-title">🔗 Footfall to Sales Correlation by Category</div>', unsafe_allow_html=True)
+        st.markdown('<div class="chart-title">🔗 Footfall to Sales Correlation</div>', unsafe_allow_html=True)
         
-        category_corr = filtered_df.groupby('category').agg({
+        col_f1, col_f2 = st.columns([2, 6])
+        with col_f1:
+            bubble_size = st.selectbox(
+                "Bubble Size By",
+                ['Conversion Rate', 'Avg Basket', 'Transactions'],
+                key='bubble_size'
+            )
+        
+        size_map = {
+            'Conversion Rate': 'conversion_rate',
+            'Avg Basket': 'avg_basket_aed',
+            'Transactions': 'transactions'
+        }
+        
+        corr_data = filtered_df.groupby('category').agg({
             'store_footfall': 'sum',
             'sales_aed': 'sum',
-            'conversion_rate': 'mean'
+            'conversion_rate': 'mean',
+            'avg_basket_aed': 'mean',
+            'transactions': 'sum'
         }).reset_index()
         
         fig = px.scatter(
-            category_corr,
+            corr_data,
             x='store_footfall',
             y='sales_aed',
-            size='conversion_rate',
+            size=size_map[bubble_size],
             color='category',
             hover_name='category',
             size_max=60,
-            color_discrete_sequence=['#D4AF37', '#4ECDC4', '#FF6B6B', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3', '#A8D8EA']
+            color_discrete_sequence=CHART_COLORS
         )
         
-        fig = apply_chart_theme(fig)
+        fig = apply_chart_theme(fig, height=450)
         fig.update_layout(
-            height=450,
             xaxis_title='Total Store Footfall',
-            yaxis_title='Total Sales (AED)',
-            legend_title='Category'
+            yaxis_title='Total Sales (AED)'
         )
         
         st.plotly_chart(fig, use_container_width=True)
@@ -1004,16 +1073,28 @@ def main():
     # TAB 3: STORE PERFORMANCE
     # ========================================
     with tab3:
-        col1, col2 = st.columns([1, 1])
+        col1, col2 = st.columns(2)
         
         with col1:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">🏆 Top 10 Stores by Sales</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">🏆 Top Stores by Sales</div>', unsafe_allow_html=True)
             
-            top_stores = filtered_df.groupby('store_name').agg({
+            # Filter
+            top_n_sales = st.slider("Number of Stores", 5, 20, 10, key='top_n_sales')
+            top_cat_filter = st.selectbox(
+                "Filter Category",
+                ['All'] + sorted(filtered_df['category'].unique().tolist()),
+                key='top_cat'
+            )
+            
+            chart_df = filtered_df.copy()
+            if top_cat_filter != 'All':
+                chart_df = chart_df[chart_df['category'] == top_cat_filter]
+            
+            top_stores = chart_df.groupby('store_name').agg({
                 'sales_aed': 'sum',
                 'category': 'first'
-            }).nlargest(10, 'sales_aed').reset_index()
+            }).nlargest(top_n_sales, 'sales_aed').reset_index()
             
             fig = go.Figure(go.Bar(
                 x=top_stores['sales_aed'],
@@ -1021,266 +1102,313 @@ def main():
                 orientation='h',
                 marker=dict(
                     color=top_stores['sales_aed'],
-                    colorscale=[[0, '#2D3E5F'], [0.5, '#D4AF37'], [1, '#F4E4BC']],
-                    line=dict(color='#D4AF37', width=1)
+                    colorscale=[[0, '#E5E7EB'], [0.5, '#DAA520'], [1, '#B8860B']],
+                    line=dict(color='#1A1A2E', width=1)
                 ),
                 text=[format_currency(x) for x in top_stores['sales_aed']],
                 textposition='inside',
-                textfont=dict(color='#0A1628', size=11, family='Inter')
+                textfont=dict(color='#1A1A2E', size=11, family='Poppins'),
+                hovertemplate="<b>%{y}</b><br>Sales: %{text}<extra></extra>"
             ))
             
-            fig = apply_chart_theme(fig)
-            fig.update_layout(height=450, xaxis_title='Total Sales (AED)', yaxis_title='')
-            fig.update_yaxes(categoryorder='total ascending')
+            fig = apply_chart_theme(fig, height=500)
+            fig.update_layout(yaxis=dict(categoryorder='total ascending'))
             
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
         with col2:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">📈 Top 10 Stores by Conversion Rate</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">📈 Top Stores by Conversion</div>', unsafe_allow_html=True)
             
-            conversion_leaders = filtered_df.groupby('store_name').agg({
+            # Filter
+            top_n_conv = st.slider("Number of Stores", 5, 20, 10, key='top_n_conv')
+            conv_cat_filter = st.selectbox(
+                "Filter Category",
+                ['All'] + sorted(filtered_df['category'].unique().tolist()),
+                key='conv_cat'
+            )
+            
+            chart_df = filtered_df.copy()
+            if conv_cat_filter != 'All':
+                chart_df = chart_df[chart_df['category'] == conv_cat_filter]
+            
+            conv_stores = chart_df.groupby('store_name').agg({
                 'conversion_rate': 'mean',
                 'category': 'first'
-            }).nlargest(10, 'conversion_rate').reset_index()
-            conversion_leaders['conversion_pct'] = conversion_leaders['conversion_rate'] * 100
+            }).nlargest(top_n_conv, 'conversion_rate').reset_index()
+            conv_stores['conv_pct'] = conv_stores['conversion_rate'] * 100
             
             fig = go.Figure(go.Bar(
-                x=conversion_leaders['conversion_pct'],
-                y=conversion_leaders['store_name'],
+                x=conv_stores['conv_pct'],
+                y=conv_stores['store_name'],
                 orientation='h',
                 marker=dict(
-                    color=conversion_leaders['conversion_pct'],
-                    colorscale=[[0, '#2D3E5F'], [0.5, '#4ECDC4'], [1, '#95E1D3']],
-                    line=dict(color='#4ECDC4', width=1)
+                    color=conv_stores['conv_pct'],
+                    colorscale=[[0, '#E5E7EB'], [0.5, '#4ADE80'], [1, '#059669']],
+                    line=dict(color='#1A1A2E', width=1)
                 ),
-                text=[f"{x:.1f}%" for x in conversion_leaders['conversion_pct']],
+                text=[f"{x:.1f}%" for x in conv_stores['conv_pct']],
                 textposition='inside',
-                textfont=dict(color='#0A1628', size=11, family='Inter')
+                textfont=dict(color='#1A1A2E', size=11, family='Poppins'),
+                hovertemplate="<b>%{y}</b><br>Conversion: %{text}<extra></extra>"
             ))
             
-            fig = apply_chart_theme(fig)
-            fig.update_layout(height=450, xaxis_title='Conversion Rate (%)', yaxis_title='')
-            fig.update_yaxes(categoryorder='total ascending')
+            fig = apply_chart_theme(fig, height=500)
+            fig.update_layout(yaxis=dict(categoryorder='total ascending'), xaxis_title='Conversion Rate (%)')
             
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
-        if show_store_details:
+        # Store Performance Table
+        if show_raw_data:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">🏪 Store Performance Matrix</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">📋 Store Performance Matrix</div>', unsafe_allow_html=True)
             
             store_matrix = filtered_df.groupby(['store_name', 'category', 'floor']).agg({
                 'sales_aed': 'sum',
                 'transactions': 'sum',
                 'store_footfall': 'sum',
                 'conversion_rate': 'mean',
-                'avg_basket_aed': 'mean',
-                'sales_per_sqft': 'mean',
-                'store_area_sqft': 'first'
+                'avg_basket_aed': 'mean'
             }).reset_index()
             
-            store_matrix['conversion_rate'] = store_matrix['conversion_rate'] * 100
+            store_matrix['conversion_rate'] = (store_matrix['conversion_rate'] * 100).round(1)
+            store_matrix['sales_aed'] = store_matrix['sales_aed'].apply(lambda x: f"AED {x:,.0f}")
+            store_matrix['avg_basket_aed'] = store_matrix['avg_basket_aed'].apply(lambda x: f"AED {x:,.0f}")
+            store_matrix['conversion_rate'] = store_matrix['conversion_rate'].apply(lambda x: f"{x}%")
             
-            # Format for display
-            display_df = store_matrix.copy()
-            display_df['sales_aed'] = display_df['sales_aed'].apply(lambda x: f"AED {x:,.0f}")
-            display_df['avg_basket_aed'] = display_df['avg_basket_aed'].apply(lambda x: f"AED {x:,.0f}")
-            display_df['sales_per_sqft'] = display_df['sales_per_sqft'].apply(lambda x: f"AED {x:,.0f}")
-            display_df['conversion_rate'] = display_df['conversion_rate'].apply(lambda x: f"{x:.1f}%")
-            display_df.columns = ['Store', 'Category', 'Floor', 'Total Sales', 'Transactions', 
-                                 'Footfall', 'Conversion', 'Avg Basket', 'Sales/Sqft', 'Area (sqft)']
+            store_matrix.columns = ['Store', 'Category', 'Floor', 'Total Sales', 'Transactions', 
+                                   'Footfall', 'Conversion', 'Avg Basket']
             
-            st.dataframe(
-                display_df.sort_values('Total Sales', ascending=False),
-                use_container_width=True,
-                height=400
-            )
+            st.dataframe(store_matrix, use_container_width=True, height=400)
             st.markdown('</div>', unsafe_allow_html=True)
     
     # ========================================
-    # TAB 4: CATEGORY INSIGHTS
+    # TAB 4: CATEGORY ANALYSIS
     # ========================================
     with tab4:
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">📊 Sales by Category</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">📊 Category Performance</div>', unsafe_allow_html=True)
             
-            category_sales = filtered_df.groupby('category')['sales_aed'].sum().sort_values(ascending=True)
+            perf_metric = st.selectbox(
+                "Select Metric",
+                ['Total Sales', 'Avg Basket', 'Conversion Rate', 'Transactions'],
+                key='cat_metric'
+            )
+            
+            metric_map = {
+                'Total Sales': ('sales_aed', 'sum'),
+                'Avg Basket': ('avg_basket_aed', 'mean'),
+                'Conversion Rate': ('conversion_rate', 'mean'),
+                'Transactions': ('transactions', 'sum')
+            }
+            
+            col_name, agg_func = metric_map[perf_metric]
+            cat_perf = filtered_df.groupby('category')[col_name].agg(agg_func).sort_values(ascending=True)
+            
+            if perf_metric == 'Conversion Rate':
+                cat_perf = cat_perf * 100
+                text_vals = [f"{x:.1f}%" for x in cat_perf.values]
+            elif perf_metric in ['Total Sales', 'Avg Basket']:
+                text_vals = [format_currency(x) for x in cat_perf.values]
+            else:
+                text_vals = [format_number(x) for x in cat_perf.values]
             
             fig = go.Figure(go.Bar(
-                x=category_sales.values,
-                y=category_sales.index,
+                x=cat_perf.values,
+                y=cat_perf.index,
                 orientation='h',
-                marker=dict(
-                    color=['#D4AF37', '#4ECDC4', '#FF6B6B', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3', '#A8D8EA'][:len(category_sales)],
-                    line=dict(color='rgba(255,255,255,0.3)', width=1)
-                ),
-                text=[format_currency(x) for x in category_sales.values],
+                marker_color=CHART_COLORS[:len(cat_perf)],
+                text=text_vals,
                 textposition='inside',
-                textfont=dict(color='#0A1628', size=11)
+                textfont=dict(color='#FFFFFF', size=12, family='Poppins')
             ))
             
-            fig = apply_chart_theme(fig)
-            fig.update_layout(height=400, xaxis_title='Total Sales (AED)', yaxis_title='')
+            fig = apply_chart_theme(fig, height=400)
             
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
         with col2:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">🧺 Average Basket by Category</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">🎯 Category Radar</div>', unsafe_allow_html=True)
             
-            category_basket = filtered_df.groupby('category')['avg_basket_aed'].mean().sort_values(ascending=True)
+            radar_cats = st.multiselect(
+                "Select Categories to Compare",
+                filtered_df['category'].unique().tolist(),
+                default=filtered_df['category'].unique().tolist()[:4],
+                key='radar_cats'
+            )
             
-            fig = go.Figure(go.Bar(
-                x=category_basket.values,
-                y=category_basket.index,
-                orientation='h',
-                marker=dict(
-                    color=category_basket.values,
-                    colorscale='Viridis',
-                    line=dict(color='rgba(255,255,255,0.3)', width=1)
-                ),
-                text=[format_currency(x) for x in category_basket.values],
-                textposition='inside',
-                textfont=dict(color='#FFFFFF', size=11)
-            ))
-            
-            fig = apply_chart_theme(fig)
-            fig.update_layout(height=400, xaxis_title='Average Basket (AED)', yaxis_title='')
-            
-            st.plotly_chart(fig, use_container_width=True)
+            if radar_cats:
+                radar_df = filtered_df[filtered_df['category'].isin(radar_cats)]
+                cat_metrics = radar_df.groupby('category').agg({
+                    'sales_aed': 'sum',
+                    'transactions': 'sum',
+                    'conversion_rate': 'mean',
+                    'avg_basket_aed': 'mean',
+                    'sales_per_sqft': 'mean'
+                }).reset_index()
+                
+                # Normalize
+                for col in ['sales_aed', 'transactions', 'conversion_rate', 'avg_basket_aed', 'sales_per_sqft']:
+                    max_val = cat_metrics[col].max()
+                    if max_val > 0:
+                        cat_metrics[f'{col}_norm'] = cat_metrics[col] / max_val * 100
+                
+                categories_list = ['Sales', 'Transactions', 'Conversion', 'Avg Basket', 'Sales/Sqft']
+                
+                fig = go.Figure()
+                
+                for idx, (_, row) in enumerate(cat_metrics.iterrows()):
+                    values = [
+                        row['sales_aed_norm'],
+                        row['transactions_norm'],
+                        row['conversion_rate_norm'],
+                        row['avg_basket_aed_norm'],
+                        row['sales_per_sqft_norm']
+                    ]
+                    values.append(values[0])
+                    
+                    fig.add_trace(go.Scatterpolar(
+                        r=values,
+                        theta=categories_list + [categories_list[0]],
+                        name=row['category'],
+                        line=dict(color=CHART_COLORS[idx % len(CHART_COLORS)], width=3),
+                        fill='toself',
+                        fillcolor=f'rgba({int(CHART_COLORS[idx % len(CHART_COLORS)][1:3], 16)}, {int(CHART_COLORS[idx % len(CHART_COLORS)][3:5], 16)}, {int(CHART_COLORS[idx % len(CHART_COLORS)][5:7], 16)}, 0.15)'
+                    ))
+                
+                fig = apply_chart_theme(fig, height=400)
+                fig.update_layout(
+                    polar=dict(
+                        radialaxis=dict(visible=True, range=[0, 100], gridcolor='rgba(0,0,0,0.1)'),
+                        angularaxis=dict(gridcolor='rgba(0,0,0,0.1)', tickfont=dict(size=11))
+                    )
+                )
+                
+                st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
-        # Category Performance Radar Chart
+        # Heatmap
         st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-        st.markdown('<div class="chart-title">🎯 Category Performance Radar</div>', unsafe_allow_html=True)
+        st.markdown('<div class="chart-title">🗓️ Sales Heatmap: Category × Day</div>', unsafe_allow_html=True)
         
-        category_metrics = filtered_df.groupby('category').agg({
-            'sales_aed': 'sum',
-            'transactions': 'sum',
-            'conversion_rate': 'mean',
-            'avg_basket_aed': 'mean',
-            'sales_per_sqft': 'mean'
-        }).reset_index()
-        
-        # Normalize metrics for radar chart
-        for col in ['sales_aed', 'transactions', 'conversion_rate', 'avg_basket_aed', 'sales_per_sqft']:
-            max_val = category_metrics[col].max()
-            if max_val > 0:
-                category_metrics[f'{col}_norm'] = category_metrics[col] / max_val * 100
-        
-        categories_list = ['Sales', 'Transactions', 'Conversion', 'Avg Basket', 'Sales/Sqft']
-        
-        fig = go.Figure()
-        
-        colors = ['#D4AF37', '#4ECDC4', '#FF6B6B', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3', '#A8D8EA']
-        
-        for idx, (_, row) in enumerate(category_metrics.iterrows()):
-            values = [
-                row['sales_aed_norm'],
-                row['transactions_norm'],
-                row['conversion_rate_norm'],
-                row['avg_basket_aed_norm'],
-                row['sales_per_sqft_norm']
-            ]
-            values.append(values[0])  # Close the radar
-            
-            fig.add_trace(go.Scatterpolar(
-                r=values,
-                theta=categories_list + [categories_list[0]],
-                name=row['category'],
-                line=dict(color=colors[idx % len(colors)], width=2),
-                fill='toself',
-                fillcolor=f'rgba({int(colors[idx % len(colors)][1:3], 16)}, {int(colors[idx % len(colors)][3:5], 16)}, {int(colors[idx % len(colors)][5:7], 16)}, 0.1)'
-            ))
-        
-        fig = apply_chart_theme(fig)
-        fig.update_layout(
-            height=500,
-            polar=dict(
-                radialaxis=dict(
-                    visible=True,
-                    range=[0, 100],
-                    gridcolor='rgba(212, 175, 55, 0.2)',
-                    tickfont=dict(color='#8B9DC3')
-                ),
-                angularaxis=dict(
-                    gridcolor='rgba(212, 175, 55, 0.2)',
-                    tickfont=dict(color='#B8C5D9', size=12)
-                ),
-                bgcolor='rgba(0,0,0,0)'
-            ),
-            legend=dict(
-                orientation='h',
-                yanchor='bottom',
-                y=-0.2,
-                xanchor='center',
-                x=0.5
-            )
+        heatmap_value = st.selectbox(
+            "Heatmap Value",
+            ['Total Sales', 'Avg Sales', 'Transactions'],
+            key='hm_value'
         )
+        
+        agg_map = {'Total Sales': 'sum', 'Avg Sales': 'mean', 'Transactions': 'sum'}
+        col_map = {'Total Sales': 'sales_aed', 'Avg Sales': 'sales_aed', 'Transactions': 'transactions'}
+        
+        heatmap_data = filtered_df.pivot_table(
+            values=col_map[heatmap_value],
+            index='category',
+            columns='day_name',
+            aggfunc=agg_map[heatmap_value]
+        )
+        
+        day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        heatmap_data = heatmap_data[[d for d in day_order if d in heatmap_data.columns]]
+        
+        fig = go.Figure(go.Heatmap(
+            z=heatmap_data.values,
+            x=heatmap_data.columns,
+            y=heatmap_data.index,
+            colorscale=[[0, '#FEF3C7'], [0.5, '#F59E0B'], [1, '#B45309']],
+            hovertemplate='<b>%{y}</b><br>%{x}: %{z:,.0f}<extra></extra>',
+            colorbar=dict(title=heatmap_value, tickfont=dict(color='#1A1A2E'))
+        ))
+        
+        fig = apply_chart_theme(fig, height=400)
         
         st.plotly_chart(fig, use_container_width=True)
         st.markdown('</div>', unsafe_allow_html=True)
     
     # ========================================
-    # TAB 5: DEEP DIVE ANALYSIS
+    # TAB 5: DEEP INSIGHTS
     # ========================================
     with tab5:
         col1, col2 = st.columns(2)
         
         with col1:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">🏢 Floor-wise Performance</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">🏢 Floor Performance</div>', unsafe_allow_html=True)
+            
+            floor_metric = st.selectbox(
+                "Metric",
+                ['Sales', 'Footfall', 'Transactions', 'Conversion'],
+                key='floor_metric'
+            )
+            
+            metric_cols = {
+                'Sales': 'sales_aed',
+                'Footfall': 'store_footfall',
+                'Transactions': 'transactions',
+                'Conversion': 'conversion_rate'
+            }
             
             floor_perf = filtered_df.groupby('floor').agg({
-                'sales_aed': 'sum',
-                'store_footfall': 'sum',
-                'transactions': 'sum'
+                metric_cols[floor_metric]: 'sum' if floor_metric != 'Conversion' else 'mean'
             }).reset_index()
             
             floor_order = {'LG': 0, 'G': 1, '1': 2, '2': 3, '3': 4}
             floor_perf['order'] = floor_perf['floor'].map(floor_order)
             floor_perf = floor_perf.sort_values('order')
-            floor_perf['floor_label'] = floor_perf['floor'].map({
+            floor_perf['label'] = floor_perf['floor'].map({
                 'LG': 'Lower Ground', 'G': 'Ground', '1': 'Level 1', '2': 'Level 2', '3': 'Level 3'
             })
             
-            fig = go.Figure()
+            if floor_metric == 'Conversion':
+                floor_perf[metric_cols[floor_metric]] *= 100
+                text_vals = [f"{x:.1f}%" for x in floor_perf[metric_cols[floor_metric]]]
+            elif floor_metric == 'Sales':
+                text_vals = [format_currency(x) for x in floor_perf[metric_cols[floor_metric]]]
+            else:
+                text_vals = [format_number(x) for x in floor_perf[metric_cols[floor_metric]]]
             
-            fig.add_trace(go.Bar(
-                name='Sales (AED)',
-                x=floor_perf['floor_label'],
-                y=floor_perf['sales_aed'],
-                marker_color='#D4AF37',
-                text=[format_currency(x) for x in floor_perf['sales_aed']],
-                textposition='outside'
+            fig = go.Figure(go.Bar(
+                x=floor_perf['label'],
+                y=floor_perf[metric_cols[floor_metric]],
+                marker_color=['#1A1A2E', '#B8860B', '#2563EB', '#059669', '#7C3AED'][:len(floor_perf)],
+                text=text_vals,
+                textposition='outside',
+                textfont=dict(color='#1A1A2E', size=12, family='Poppins')
             ))
             
-            fig = apply_chart_theme(fig)
-            fig.update_layout(height=400, xaxis_title='Floor', yaxis_title='Total Sales (AED)')
+            fig = apply_chart_theme(fig, height=380)
             
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
         with col2:
             st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-            st.markdown('<div class="chart-title">💵 Rent vs Revenue Analysis</div>', unsafe_allow_html=True)
+            st.markdown('<div class="chart-title">💵 Rent vs Revenue</div>', unsafe_allow_html=True)
             
-            rent_revenue = filtered_df.groupby('store_name').agg({
+            rent_cat = st.selectbox(
+                "Category Filter",
+                ['All'] + sorted(filtered_df['category'].unique().tolist()),
+                key='rent_cat'
+            )
+            
+            rent_df = filtered_df.copy()
+            if rent_cat != 'All':
+                rent_df = rent_df[rent_df['category'] == rent_cat]
+            
+            rent_revenue = rent_df.groupby('store_name').agg({
                 'annual_base_rent_aed': 'first',
                 'sales_aed': 'sum',
                 'category': 'first'
             }).reset_index()
             
-            # Annualize sales (assuming data is for a portion of the year)
-            days_in_data = filtered_df['date'].nunique()
-            rent_revenue['annualized_sales'] = rent_revenue['sales_aed'] * (365 / days_in_data)
-            rent_revenue['rent_to_sales'] = (rent_revenue['annual_base_rent_aed'] / rent_revenue['annualized_sales']) * 100
+            days_in_data = rent_df['date'].nunique()
+            rent_revenue['annualized_sales'] = rent_revenue['sales_aed'] * (365 / max(days_in_data, 1))
             
             fig = px.scatter(
                 rent_revenue,
@@ -1288,111 +1416,69 @@ def main():
                 y='annualized_sales',
                 color='category',
                 hover_name='store_name',
-                size='rent_to_sales',
-                size_max=40,
-                color_discrete_sequence=['#D4AF37', '#4ECDC4', '#FF6B6B', '#95E1D3', '#F38181', '#AA96DA', '#FCBAD3', '#A8D8EA']
+                color_discrete_sequence=CHART_COLORS
             )
             
-            # Add break-even line (rent = 10% of sales typical retail)
+            # Break-even line
             max_rent = rent_revenue['annual_base_rent_aed'].max()
             fig.add_trace(go.Scatter(
                 x=[0, max_rent],
                 y=[0, max_rent * 10],
                 mode='lines',
-                name='Break-even (10%)',
-                line=dict(color='#FF6B6B', dash='dash', width=2)
+                name='10% Rent Ratio',
+                line=dict(color='#DC2626', dash='dash', width=2)
             ))
             
-            fig = apply_chart_theme(fig)
+            fig = apply_chart_theme(fig, height=380)
             fig.update_layout(
-                height=400,
                 xaxis_title='Annual Rent (AED)',
-                yaxis_title='Annualized Sales (AED)',
-                legend_title='Category'
+                yaxis_title='Annualized Sales (AED)'
             )
             
             st.plotly_chart(fig, use_container_width=True)
             st.markdown('</div>', unsafe_allow_html=True)
         
-        # Heatmap: Category Performance by Day
-        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-        st.markdown('<div class="chart-title">🗓️ Category Sales Heatmap by Day of Week</div>', unsafe_allow_html=True)
-        
-        heatmap_data = filtered_df.pivot_table(
-            values='sales_aed',
-            index='category',
-            columns='day_name',
-            aggfunc='sum'
-        )
-        
-        day_order = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
-        heatmap_data = heatmap_data[day_order]
-        
-        fig = go.Figure(go.Heatmap(
-            z=heatmap_data.values,
-            x=heatmap_data.columns,
-            y=heatmap_data.index,
-            colorscale=[
-                [0, '#0A1628'],
-                [0.25, '#1A2742'],
-                [0.5, '#2D3E5F'],
-                [0.75, '#D4AF37'],
-                [1, '#F4E4BC']
-            ],
-            hovertemplate='<b>%{y}</b><br>%{x}: AED %{z:,.0f}<extra></extra>'
-        ))
-        
-        fig = apply_chart_theme(fig)
-        fig.update_layout(height=400, xaxis_title='Day of Week', yaxis_title='Category')
-        
-        st.plotly_chart(fig, use_container_width=True)
-        st.markdown('</div>', unsafe_allow_html=True)
-        
-        # Performance Insights
-        st.markdown('<div class="chart-container">', unsafe_allow_html=True)
-        st.markdown('<div class="chart-title">💡 Key Insights & Recommendations</div>', unsafe_allow_html=True)
+        # Key Insights
+        st.markdown('<div class="section-header">💡 Key Insights & Recommendations</div>', unsafe_allow_html=True)
         
         col1, col2, col3 = st.columns(3)
         
-        # Calculate insights
         best_day = filtered_df.groupby('day_name')['sales_aed'].sum().idxmax()
         best_category = filtered_df.groupby('category')['sales_aed'].sum().idxmax()
-        best_floor = filtered_df.groupby('floor')['sales_aed'].sum().idxmax()
-        avg_tourist_pct = filtered_df['tourist_share'].mean() * 100
+        best_store = filtered_df.groupby('store_name')['sales_aed'].sum().idxmax()
+        avg_tourist = filtered_df['tourist_share'].mean() * 100
         
         with col1:
             st.markdown(f"""
-            <div class="info-box">
+            <div class="insight-card">
                 <h4>🏆 Peak Performance</h4>
                 <p><strong>Best Day:</strong> {best_day}</p>
                 <p><strong>Top Category:</strong> {best_category}</p>
-                <p><strong>Top Floor:</strong> {best_floor}</p>
+                <p><strong>Top Store:</strong> {best_store}</p>
             </div>
             """, unsafe_allow_html=True)
         
         with col2:
             st.markdown(f"""
-            <div class="info-box">
-                <h4>🌍 Visitor Insights</h4>
-                <p><strong>Tourist Share:</strong> {avg_tourist_pct:.1f}%</p>
-                <p><strong>Resident Share:</strong> {100-avg_tourist_pct:.1f}%</p>
-                <p><strong>Weekend Boost:</strong> +15-20%</p>
+            <div class="insight-card">
+                <h4>🌍 Visitor Analysis</h4>
+                <p><strong>Tourist Share:</strong> {avg_tourist:.1f}%</p>
+                <p><strong>Resident Share:</strong> {100-avg_tourist:.1f}%</p>
+                <p><strong>Weekend Uplift:</strong> ~18%</p>
             </div>
             """, unsafe_allow_html=True)
         
         with col3:
-            top_performer = filtered_df.groupby('store_name')['sales_aed'].sum().idxmax()
-            top_conversion = filtered_df.groupby('store_name')['conversion_rate'].mean().idxmax()
+            total_stores = filtered_df['store_name'].nunique()
+            total_categories = filtered_df['category'].nunique()
             st.markdown(f"""
-            <div class="info-box">
-                <h4>⭐ Top Performers</h4>
-                <p><strong>Sales Leader:</strong> {top_performer}</p>
-                <p><strong>Conversion Leader:</strong> {top_conversion}</p>
-                <p><strong>Opportunity:</strong> F&B Expansion</p>
+            <div class="insight-card">
+                <h4>📊 Portfolio Summary</h4>
+                <p><strong>Active Stores:</strong> {total_stores}</p>
+                <p><strong>Categories:</strong> {total_categories}</p>
+                <p><strong>Avg Conversion:</strong> {avg_conversion:.1f}%</p>
             </div>
             """, unsafe_allow_html=True)
-        
-        st.markdown('</div>', unsafe_allow_html=True)
     
     # ========================================
     # FOOTER
@@ -1400,13 +1486,15 @@ def main():
     st.markdown("""
     <div class="custom-footer">
         <p><span class="gold-text">🏬 Dubai Mall Analytics Dashboard</span></p>
-        <p>Premium Retail Intelligence Platform | Powered by Advanced Analytics</p>
-        <p style="font-size: 0.8rem; margin-top: 15px;">© 2024 Dubai Mall Management | Dashboard v2.0</p>
+        <p>Premium Retail Intelligence Platform • Projector-Ready Edition</p>
+        <p style="font-size: 0.85rem; margin-top: 15px; color: #64748B;">
+            © 2024 Dubai Mall Management | Dashboard v2.0
+        </p>
     </div>
     """, unsafe_allow_html=True)
 
 # ============================================
-# RUN APPLICATION
+# RUN
 # ============================================
 if __name__ == "__main__":
     main()
