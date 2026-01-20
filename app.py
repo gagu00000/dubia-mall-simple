@@ -82,7 +82,7 @@ st.markdown("""
     
     .main-header p {
         font-family: 'Poppins', sans-serif;
-        color: #FFFFFF !important;
+        color: #DAA520 !important;
         font-size: 1.1rem;
         margin-top: 10px;
         font-weight: 400;
