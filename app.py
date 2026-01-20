@@ -2459,14 +2459,12 @@ ACTION ITEMS:
             st.dataframe(filtered_df.head(100), use_container_width=True, height=400)
             st.markdown('</div>', unsafe_allow_html=True)
     
-# ========================================
-    # FOOTER - PURE STREAMLIT VERSION
-    # ========================================
-    st.markdown("---")
-    
-    st.markdown("### 🏬 Dubai Mall Analytics Dashboard")
-    st.markdown("**Premium Retail Intelligence Platform** • Full Analytics Suite")
-    st.caption("© 2024 Dubai Mall Management | Dashboard v3.0 | Built for Investor Presentations")
+st.markdown("""
+<div style="background: white; padding: 20px; text-align: center; border: 2px solid gold; border-radius: 10px;">
+    <h2 style="color: black;">🏬 Dubai Mall Analytics Dashboard</h2>
+    <p style="color: gray;">Premium Retail Intelligence Platform</p>
+</div>
+""", unsafe_allow_html=True)
 
 # ============================================
 # RUN
