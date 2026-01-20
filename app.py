@@ -2055,7 +2055,7 @@ def main():
         st.markdown(f"""
         <div style="background: {rec_bg}; border: 2px solid {rec_color}; border-radius: 12px; padding: 20px; margin-top: 20px; text-align: center;">
             <span style="font-size: 1.3rem; font-weight: 700; color: {rec_color};">{rec_status}</span>
-            <p style="color: #4A4A6A; margin: 10px 0 0 0;">
+            <p style="color: #DAA520; margin: 10px 0 0 0;">
                 Investment of <strong>{format_currency(investment_amount)}</strong> is projected to generate 
                 <strong>{format_currency(net_profit)}</strong> net profit with <strong>{roi_percentage:.0f}% ROI</strong>
             </p>
