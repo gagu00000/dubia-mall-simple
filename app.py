@@ -342,23 +342,41 @@ st.markdown("""
         margin: 5px;
     }
     
+    /* Footer - FIXED VISIBILITY */
     .custom-footer {
         background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
         border-radius: 16px;
-        padding: 30px;
+        padding: 35px;
         margin-top: 50px;
         text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        border-top: 3px solid #B8860B;
     }
     
     .custom-footer p {
         font-family: 'Poppins', sans-serif;
-        color: #94A3B8;
-        margin: 5px 0;
+        color: #E8E8E8 !important;
+        margin: 8px 0;
     }
     
     .custom-footer .gold-text {
-        color: #DAA520;
-        font-weight: 600;
+        color: #FFD700 !important;
+        font-weight: 700;
+        font-size: 1.3rem;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    }
+    
+    .custom-footer .subtitle {
+        color: #FFFFFF !important;
+        font-size: 1rem;
+    }
+    
+    .custom-footer .copyright {
+        color: #94A3B8 !important;
+        font-size: 0.85rem;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255,255,255,0.1);
     }
     
     ::-webkit-scrollbar {
