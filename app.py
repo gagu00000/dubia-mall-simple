@@ -43,6 +43,7 @@ st.markdown("""
     footer {visibility: hidden;}
     header {visibility: hidden;}
     
+/* Main Header - FIXED VISIBILITY */
     .main-header {
         background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
         border-radius: 20px;
@@ -60,7 +61,7 @@ st.markdown("""
         right: -10%;
         width: 300px;
         height: 300px;
-        background: radial-gradient(circle, rgba(184, 134, 11, 0.3) 0%, transparent 70%);
+        background: radial-gradient(circle, rgba(218, 165, 32, 0.4) 0%, transparent 70%);
         border-radius: 50%;
     }
     
@@ -68,22 +69,27 @@ st.markdown("""
         font-family: 'Playfair Display', serif;
         font-size: 2.8rem;
         font-weight: 700;
-        color: #DAA520;
+        color: #FFFFFF !important;
         margin: 0;
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
         position: relative;
         z-index: 1;
+        background: linear-gradient(90deg, #FFD700, #FFA500);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
     }
     
     .main-header p {
         font-family: 'Poppins', sans-serif;
-        color: #DAA520;
+        color: #FFFFFF !important;
         font-size: 1.1rem;
         margin-top: 10px;
-        font-weight: 300;
+        font-weight: 400;
         letter-spacing: 1px;
         position: relative;
         z-index: 1;
+        text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     }
     
     .section-header {
