@@ -38,13 +38,6 @@ st.markdown("""
         --text-secondary: #4A4A6A;
         --text-muted: #6B7280;
         --border-color: #E5E7EB;
-        --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-        --shadow-md: 0 4px 12px rgba(0,0,0,0.15);
-        --shadow-lg: 0 8px 25px rgba(0,0,0,0.18);
-        --success: #059669;
-        --danger: #DC2626;
-        --info: #2563EB;
-        --warning: #D97706;
     }
     
     /* Main App Background - LIGHT */
@@ -63,7 +56,7 @@ st.markdown("""
         border-radius: 20px;
         padding: 35px 45px;
         margin-bottom: 30px;
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.18);
         position: relative;
         overflow: hidden;
     }
@@ -101,99 +94,12 @@ st.markdown("""
         z-index: 1;
     }
     
-    /* KPI CARDS - SQUARE DESIGN */
-    .kpi-row {
-        display: flex;
-        gap: 20px;
-        margin-bottom: 30px;
-        flex-wrap: wrap;
-    }
-    
-    .kpi-card {
-        background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
-        border: 2px solid #E5E7EB;
-        border-radius: 16px;
-        padding: 24px;
-        flex: 1;
-        min-width: 180px;
-        max-width: 200px;
-        aspect-ratio: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        box-shadow: var(--shadow-md);
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-    
-    .kpi-card:hover {
-        transform: translateY(-8px);
-        box-shadow: var(--shadow-lg);
-        border-color: #B8860B;
-    }
-    
-    .kpi-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(90deg, #B8860B, #DAA520);
-    }
-    
-    .kpi-icon {
-        font-size: 2.5rem;
-        margin-bottom: 8px;
-        filter: grayscale(0);
-    }
-    
-    .kpi-value {
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 700;
-        color: #1A1A2E;
-        margin: 5px 0;
-        line-height: 1.2;
-    }
-    
-    .kpi-label {
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.75rem;
-        color: #6B7280;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-weight: 600;
-    }
-    
-    .kpi-delta {
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        margin-top: 5px;
-        padding: 3px 10px;
-        border-radius: 20px;
-    }
-    
-    .kpi-delta.positive {
-        color: #059669;
-        background: rgba(5, 150, 105, 0.1);
-    }
-    
-    .kpi-delta.negative {
-        color: #DC2626;
-        background: rgba(220, 38, 38, 0.1);
-    }
-    
-    /* Section Headers */
+    /* Section Headers - DARK TEXT */
     .section-header {
         font-family: 'Playfair Display', serif;
         font-size: 1.6rem;
         font-weight: 600;
-        color: #1A1A2E;
+        color: #1A1A2E !important;
         margin: 35px 0 20px 0;
         padding-bottom: 12px;
         border-bottom: 3px solid #B8860B;
@@ -209,18 +115,14 @@ st.markdown("""
         border-radius: 16px;
         padding: 25px;
         margin-bottom: 25px;
-        box-shadow: var(--shadow-sm);
-    }
-    
-    .chart-container:hover {
-        box-shadow: var(--shadow-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     
     .chart-title {
         font-family: 'Poppins', sans-serif;
         font-size: 1.1rem;
         font-weight: 600;
-        color: #1A1A2E;
+        color: #1A1A2E !important;
         margin-bottom: 15px;
         padding-bottom: 10px;
         border-bottom: 2px solid #F3F4F6;
@@ -229,34 +131,15 @@ st.markdown("""
         gap: 10px;
     }
     
-    /* Filter Box */
-    .filter-box {
-        background: linear-gradient(145deg, #FEF3C7 0%, #FDE68A 100%);
-        border: 1px solid #F59E0B;
-        border-radius: 12px;
-        padding: 15px;
-        margin-bottom: 20px;
-    }
-    
-    .filter-box label {
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #92400E;
-    }
-    
-    /* Sidebar - LIGHT THEME */
+    /* ================================================
+       SIDEBAR - Dark background with light text
+       ================================================ */
     [data-testid="stSidebar"] {
         background: linear-gradient(180deg, #1A1A2E 0%, #16213E 100%);
     }
     
     [data-testid="stSidebar"] .stMarkdown {
         color: #E2E8F0;
-    }
-    
-    [data-testid="stSidebar"] label {
-        color: #E2E8F0 !important;
-        font-family: 'Poppins', sans-serif;
     }
     
     .sidebar-header {
@@ -270,25 +153,185 @@ st.markdown("""
         margin-bottom: 25px;
     }
     
-    /* Selectbox & Input Styling */
-    .stSelectbox > div > div {
-        background-color: #FFFFFF;
-        border: 2px solid #E5E7EB;
-        border-radius: 10px;
-        font-family: 'Poppins', sans-serif;
+    /* Sidebar labels - LIGHT TEXT */
+    [data-testid="stSidebar"] .stSelectbox label,
+    [data-testid="stSidebar"] .stMultiSelect label,
+    [data-testid="stSidebar"] .stDateInput label,
+    [data-testid="stSidebar"] .stCheckbox label,
+    [data-testid="stSidebar"] .stCheckbox span,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3 {
+        color: #E2E8F0 !important;
     }
     
-    .stSelectbox > div > div:hover {
-        border-color: #B8860B;
+    /* Sidebar selectbox - white bg with dark text */
+    [data-testid="stSidebar"] .stSelectbox > div > div,
+    [data-testid="stSidebar"] .stMultiSelect > div > div {
+        background-color: #FFFFFF !important;
+        border: 2px solid #374151 !important;
+        border-radius: 10px !important;
     }
     
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] span,
+    [data-testid="stSidebar"] .stMultiSelect [data-baseweb="select"] span,
+    [data-testid="stSidebar"] .stSelectbox [data-baseweb="select"] > div {
+        color: #1A1A2E !important;
+    }
+    
+    /* ================================================
+       MAIN CONTENT - All labels DARK
+       ================================================ */
+    
+    /* All labels in main content - DARK */
+    .stSelectbox label, 
+    .stMultiSelect label,
+    .stSlider label,
+    .stDateInput label,
+    .stTextInput label,
+    .stNumberInput label,
+    .stRadio label,
+    .stCheckbox label {
+        color: #1A1A2E !important;
+        font-family: 'Poppins', sans-serif !important;
+        font-weight: 600 !important;
+        font-size: 0.9rem !important;
+    }
+    
+    /* Selectbox container - white bg, dark border */
+    .stSelectbox > div > div,
     .stMultiSelect > div > div {
-        background-color: #FFFFFF;
-        border: 2px solid #E5E7EB;
-        border-radius: 10px;
+        background-color: #FFFFFF !important;
+        border: 2px solid #D1D5DB !important;
+        border-radius: 10px !important;
+        color: #1A1A2E !important;
     }
     
-    /* Tabs Styling */
+    /* Selectbox selected value text - DARK */
+    .stSelectbox [data-baseweb="select"] > div,
+    .stSelectbox [data-baseweb="select"] span,
+    .stSelectbox [data-baseweb="select"] div[class*="valueContainer"],
+    .stMultiSelect [data-baseweb="select"] > div,
+    .stMultiSelect [data-baseweb="select"] span {
+        color: #1A1A2E !important;
+        font-family: 'Poppins', sans-serif !important;
+    }
+    
+    /* Force dark text on selectbox value */
+    div[data-baseweb="select"] > div {
+        color: #1A1A2E !important;
+    }
+    
+    div[data-baseweb="select"] span {
+        color: #1A1A2E !important;
+    }
+    
+    /* Dropdown arrow icon - DARK */
+    .stSelectbox svg,
+    .stMultiSelect svg {
+        fill: #1A1A2E !important;
+        color: #1A1A2E !important;
+    }
+    
+    /* Input focus state */
+    .stSelectbox > div > div:focus-within,
+    .stMultiSelect > div > div:focus-within {
+        border-color: #B8860B !important;
+        box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.2) !important;
+    }
+    
+    /* ================================================
+       DROPDOWN MENU - Dark text on white
+       ================================================ */
+    [data-baseweb="menu"],
+    [data-baseweb="popover"] > div {
+        background-color: #FFFFFF !important;
+        border: 1px solid #E5E7EB !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        border-radius: 10px !important;
+    }
+    
+    [data-baseweb="menu"] li,
+    [data-baseweb="menu"] [role="option"],
+    [data-baseweb="menu"] ul li {
+        color: #1A1A2E !important;
+        background-color: #FFFFFF !important;
+        font-family: 'Poppins', sans-serif !important;
+        padding: 10px 15px !important;
+    }
+    
+    [data-baseweb="menu"] li:hover,
+    [data-baseweb="menu"] [role="option"]:hover {
+        background-color: #FEF3C7 !important;
+        color: #92400E !important;
+    }
+    
+    [data-baseweb="menu"] [aria-selected="true"],
+    [data-baseweb="menu"] li[aria-selected="true"] {
+        background-color: #B8860B !important;
+        color: #FFFFFF !important;
+    }
+    
+    /* ================================================
+       SLIDER
+       ================================================ */
+    .stSlider [data-baseweb="slider"] div {
+        color: #1A1A2E !important;
+    }
+    
+    .stSlider > div > div > div > div {
+        color: #1A1A2E !important;
+    }
+    
+    .stSlider > div > div > div:last-child {
+        color: #1A1A2E !important;
+    }
+    
+    /* Slider track */
+    .stSlider [data-baseweb="slider"] [data-testid="stTickBar"] {
+        background: #E5E7EB !important;
+    }
+    
+    /* Slider thumb */
+    .stSlider [data-baseweb="slider"] div[role="slider"] {
+        background-color: #B8860B !important;
+        border-color: #B8860B !important;
+    }
+    
+    /* ================================================
+       DATE INPUT
+       ================================================ */
+    .stDateInput input {
+        color: #1A1A2E !important;
+        background-color: #FFFFFF !important;
+        border: 2px solid #D1D5DB !important;
+        border-radius: 10px !important;
+    }
+    
+    .stDateInput input:focus {
+        border-color: #B8860B !important;
+    }
+    
+    /* ================================================
+       CHECKBOX
+       ================================================ */
+    .stCheckbox span {
+        color: #1A1A2E !important;
+    }
+    
+    .stCheckbox [data-testid="stCheckbox"] {
+        color: #1A1A2E !important;
+    }
+    
+    /* Checkbox in sidebar */
+    [data-testid="stSidebar"] .stCheckbox span {
+        color: #E2E8F0 !important;
+    }
+    
+    /* ================================================
+       TABS
+       ================================================ */
     .stTabs [data-baseweb="tab-list"] {
         gap: 8px;
         background-color: #F3F4F6;
@@ -299,19 +342,42 @@ st.markdown("""
     .stTabs [data-baseweb="tab"] {
         font-family: 'Poppins', sans-serif;
         font-weight: 600;
-        color: #4A4A6A;
+        color: #4A4A6A !important;
         border-radius: 8px;
         padding: 12px 24px;
         background: transparent;
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%);
+        background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%) !important;
         color: #FFFFFF !important;
         box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
     }
     
-    /* Data Table */
+    .stTabs [data-baseweb="tab-panel"] {
+        color: #1A1A2E !important;
+    }
+    
+    /* ================================================
+       EXPANDER
+       ================================================ */
+    .streamlit-expanderHeader {
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        color: #1A1A2E !important;
+        background-color: #F3F4F6 !important;
+        border: 1px solid #E5E7EB;
+        border-radius: 10px;
+    }
+    
+    .streamlit-expanderHeader:hover {
+        color: #B8860B !important;
+        border-color: #B8860B !important;
+    }
+    
+    /* ================================================
+       DATA TABLE
+       ================================================ */
     .dataframe {
         font-family: 'Poppins', sans-serif !important;
         border-radius: 10px;
@@ -322,9 +388,6 @@ st.markdown("""
         background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%) !important;
         color: #DAA520 !important;
         font-weight: 600 !important;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-        font-size: 0.8rem !important;
         padding: 12px !important;
     }
     
@@ -333,85 +396,52 @@ st.markdown("""
         color: #1A1A2E !important;
         border-color: #E5E7EB !important;
         padding: 10px !important;
-        font-size: 0.9rem !important;
     }
     
     .dataframe tr:nth-child(even) td {
         background-color: #F9FAFB !important;
     }
     
-    /* Expander */
-    .streamlit-expanderHeader {
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        color: #1A1A2E;
-        background-color: #F3F4F6;
-        border: 1px solid #E5E7EB;
-        border-radius: 10px;
-    }
-    
-    /* Info Boxes */
+    /* ================================================
+       INSIGHT CARDS
+       ================================================ */
     .insight-card {
         background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
         border-left: 5px solid #B8860B;
         border-radius: 12px;
         padding: 20px;
         margin: 15px 0;
-        box-shadow: var(--shadow-sm);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     
     .insight-card h4 {
         font-family: 'Poppins', sans-serif;
-        color: #1A1A2E;
+        color: #1A1A2E !important;
         font-weight: 600;
         margin-bottom: 10px;
-        font-size: 1rem;
     }
     
     .insight-card p {
         font-family: 'Poppins', sans-serif;
-        color: #4A4A6A;
+        color: #4A4A6A !important;
         font-size: 0.95rem;
         margin: 5px 0;
-        line-height: 1.5;
     }
     
     .insight-card strong {
-        color: #B8860B;
+        color: #B8860B !important;
     }
     
-    /* Metric Highlight */
-    .metric-highlight {
-        background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
-        border: 2px solid #F59E0B;
-        border-radius: 10px;
-        padding: 15px 20px;
-        display: inline-block;
-        margin: 5px;
-    }
-    
-    .metric-highlight .value {
-        font-family: 'Poppins', sans-serif;
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #92400E;
-    }
-    
-    .metric-highlight .label {
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.8rem;
-        color: #B45309;
-        text-transform: uppercase;
-    }
-    
-    /* Footer */
+    /* ================================================
+       FOOTER
+       ================================================ */
     .custom-footer {
         background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
         border-radius: 16px;
         padding: 30px;
         margin-top: 50px;
         text-align: center;
-        box-shadow: var(--shadow-lg);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.18);
     }
     
     .custom-footer p {
@@ -425,7 +455,9 @@ st.markdown("""
         font-weight: 600;
     }
     
-    /* Scrollbar */
+    /* ================================================
+       SCROLLBAR
+       ================================================ */
     ::-webkit-scrollbar {
         width: 10px;
         height: 10px;
@@ -441,72 +473,22 @@ st.markdown("""
         border-radius: 5px;
     }
     
-    /* Animation */
-    @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+    /* ================================================
+       MARKDOWN TEXT
+       ================================================ */
+    .stMarkdown {
+        color: #1A1A2E !important;
     }
     
-    .animate-in {
-        animation: fadeIn 0.5s ease-out;
+    .stMarkdown p, .stMarkdown li, .stMarkdown span {
+        color: #1A1A2E !important;
     }
     
-    /* Chart Filter Row */
-    .chart-filter-row {
-        background: #F8FAFC;
-        border: 1px solid #E5E7EB;
-        border-radius: 10px;
-        padding: 12px 15px;
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-    
-    .chart-filter-row label {
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 500;
-        color: #4A4A6A;
-    }
-    
-    /* Badge */
-    .badge {
-        display: inline-block;
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-family: 'Poppins', sans-serif;
-        font-size: 0.75rem;
-        font-weight: 600;
-    }
-    
-    .badge-gold {
-        background: linear-gradient(135deg, #B8860B 0%, #DAA520 100%);
-        color: #FFFFFF;
-    }
-    
-    .badge-success {
-        background: #D1FAE5;
-        color: #059669;
-    }
-    
-    .badge-danger {
-        background: #FEE2E2;
-        color: #DC2626;
-    }
-    
-    /* Responsive */
-    @media (max-width: 768px) {
-        .main-header h1 {
-            font-size: 1.8rem;
-        }
-        .kpi-card {
-            min-width: 150px;
-            max-width: 150px;
-        }
-        .kpi-value {
-            font-size: 1.4rem;
-        }
+    /* Override for sidebar */
+    [data-testid="stSidebar"] .stMarkdown p,
+    [data-testid="stSidebar"] .stMarkdown li,
+    [data-testid="stSidebar"] .stMarkdown span {
+        color: #E2E8F0 !important;
     }
 </style>
 """, unsafe_allow_html=True)
