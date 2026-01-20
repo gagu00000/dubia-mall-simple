@@ -2460,22 +2460,13 @@ ACTION ITEMS:
             st.markdown('</div>', unsafe_allow_html=True)
     
 # ========================================
-    # FOOTER - BULLETPROOF VISIBLE VERSION
+    # FOOTER - PURE STREAMLIT VERSION
     # ========================================
     st.markdown("---")
     
-    footer_col1, footer_col2, footer_col3 = st.columns([1, 2, 1])
-    
-    with footer_col2:
-        st.markdown("""
-        <div style="text-align: center; padding: 30px; background-color: #1E293B; border-radius: 15px; border: 2px solid #B8860B;">
-            <h2 style="color: #FFD700 !important; font-size: 24px !important; margin-bottom: 10px !important;">🏬 Dubai Mall Analytics Dashboard</h2>
-            <p style="color: #FFFFFF !important; font-size: 16px !important; margin-bottom: 15px !important;">Premium Retail Intelligence Platform • Full Analytics Suite</p>
-            <hr style="border: none; border-top: 1px solid #B8860B; margin: 15px 0;">
-            <p style="color: #CBD5E1 !important; font-size: 14px !important; margin: 5px 0 !important;">© 2024 Dubai Mall Management | Dashboard v3.0</p>
-            <p style="color: #94A3B8 !important; font-size: 12px !important; margin: 5px 0 !important;">Built for Investor Presentations</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown("### 🏬 Dubai Mall Analytics Dashboard")
+    st.markdown("**Premium Retail Intelligence Platform** • Full Analytics Suite")
+    st.caption("© 2024 Dubai Mall Management | Dashboard v3.0 | Built for Investor Presentations")
 
 # ============================================
 # RUN
