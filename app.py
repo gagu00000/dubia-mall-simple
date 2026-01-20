@@ -2442,15 +2442,54 @@ ACTION ITEMS:
             st.markdown('</div>', unsafe_allow_html=True)
     
     # ========================================
-    # FOOTER
+    # FOOTER - GUARANTEED VISIBLE
     # ========================================
     st.markdown("""
-    <div class="custom-footer">
-        <p><span class="gold-text">🏬 Dubai Mall Analytics Dashboard</span></p>
-        <p>Premium Retail Intelligence Platform • Full Analytics Suite</p>
-        <p style="font-size: 0.85rem; margin-top: 15px; color: #64748B;">
-            © 2024 Dubai Mall Management | Dashboard v3.0 - All 19 Charts
-        </p>
+    <div style="
+        background: linear-gradient(135deg, #1A1A2E 0%, #16213E 100%);
+        border-radius: 16px;
+        padding: 35px;
+        margin-top: 50px;
+        text-align: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        border-top: 3px solid #B8860B;
+    ">
+        <p style="
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+        ">🏬 Dubai Mall Analytics Dashboard</p>
+        
+        <p style="
+            font-family: 'Poppins', Arial, sans-serif;
+            color: #E8E8E8;
+            font-size: 1rem;
+            margin: 8px 0;
+            letter-spacing: 0.5px;
+        ">Premium Retail Intelligence Platform • Full Analytics Suite</p>
+        
+        <div style="
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        ">
+            <p style="
+                font-family: 'Poppins', Arial, sans-serif;
+                color: #94A3B8;
+                font-size: 0.85rem;
+                margin: 0;
+            ">© 2024 Dubai Mall Management | Dashboard v3.0</p>
+            
+            <p style="
+                font-family: 'Poppins', Arial, sans-serif;
+                color: #64748B;
+                font-size: 0.8rem;
+                margin: 10px 0 0 0;
+            ">Built with ❤️ for Investor Presentations</p>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
