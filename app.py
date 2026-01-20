@@ -1577,7 +1577,7 @@ def main():
             st.markdown(f"""
             <div style="background: #F0FDF4; border: 1px solid #059669; border-radius: 10px; padding: 15px; margin-top: 15px;">
                 <p style="color: #059669; font-weight: 600; margin: 0;">📋 Scenario Details</p>
-                <p style="color: #1A1A2E; font-size: 0.9rem; margin: 10px 0;">{scenario['description']}</p>
+                <p style="color: #DAA520; font-size: 0.9rem; margin: 10px 0;">{scenario['description']}</p>
                 <p style="color: #6B7280; font-size: 0.8rem; margin: 0;">Duration: {scenario['duration']} | Confidence: {scenario['confidence']}%</p>
             </div>
             """, unsafe_allow_html=True)
