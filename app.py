@@ -577,7 +577,7 @@ def main():
     st.markdown("""
     <div class="main-header">
         <h1>🏬 Dubai Mall Analytics Dashboard</h1>
-        <p>Real-time Retail Performance Intelligence • Premium Analytics Suite</p>
+        <h1>Real-time Retail Performance Intelligence • Premium Analytics Suite</h1>
     </div>
     """, unsafe_allow_html=True)
     
