@@ -698,8 +698,8 @@ def main():
     </div>
     """, unsafe_allow_html=True)
     
-    # ========================================
-    # KPI CARDS - FIXED SQUARE LAYOUT
+   # ========================================
+    # KPI CARDS - USING STREAMLIT COLUMNS
     # ========================================
     st.markdown('<div class="section-header">📊 Key Performance Indicators</div>', unsafe_allow_html=True)
     
@@ -711,17 +711,142 @@ def main():
     avg_basket = filtered_df['avg_basket_aed'].mean()
     sales_per_sqft = filtered_df['sales_per_sqft'].mean()
     
-    # KPI Row
-    kpi_html = '<div class="kpi-row">'
-    kpi_html += create_kpi_html("💰", "Total Sales", format_value_short(total_sales), 12.5)
-    kpi_html += create_kpi_html("👥", "Mall Footfall", format_value_short(total_footfall), 8.3)
-    kpi_html += create_kpi_html("🛒", "Transactions", format_value_short(total_transactions), 15.2)
-    kpi_html += create_kpi_html("📈", "Conversion", f"{avg_conversion:.1f}%", 3.2)
-    kpi_html += create_kpi_html("🧺", "Avg Basket", format_value_short(avg_basket), 5.8)
-    kpi_html += create_kpi_html("📐", "Sales/Sqft", format_value_short(sales_per_sqft), 7.1)
-    kpi_html += '</div>'
+    # KPI Row using Streamlit columns
+    kpi_col1, kpi_col2, kpi_col3, kpi_col4, kpi_col5, kpi_col6 = st.columns(6)
     
-    st.markdown(kpi_html, unsafe_allow_html=True)
+    with kpi_col1:
+        st.markdown(f"""
+        <div style="
+            background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #B8860B;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        ">
+            <div style="font-size: 2rem; margin-bottom: 5px;">💰</div>
+            <div style="font-size: 0.7rem; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Total Sales</div>
+            <div style="font-size: 1.6rem; font-weight: 700; color: #1A1A2E; margin: 5px 0;">{format_value_short(total_sales)}</div>
+            <div style="font-size: 0.8rem; color: #059669; background: rgba(5,150,105,0.1); padding: 2px 10px; border-radius: 20px; display: inline-block;">▲ 12.5%</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with kpi_col2:
+        st.markdown(f"""
+        <div style="
+            background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #2563EB;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        ">
+            <div style="font-size: 2rem; margin-bottom: 5px;">👥</div>
+            <div style="font-size: 0.7rem; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Mall Footfall</div>
+            <div style="font-size: 1.6rem; font-weight: 700; color: #1A1A2E; margin: 5px 0;">{format_value_short(total_footfall)}</div>
+            <div style="font-size: 0.8rem; color: #059669; background: rgba(5,150,105,0.1); padding: 2px 10px; border-radius: 20px; display: inline-block;">▲ 8.3%</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with kpi_col3:
+        st.markdown(f"""
+        <div style="
+            background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #059669;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        ">
+            <div style="font-size: 2rem; margin-bottom: 5px;">🛒</div>
+            <div style="font-size: 0.7rem; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Transactions</div>
+            <div style="font-size: 1.6rem; font-weight: 700; color: #1A1A2E; margin: 5px 0;">{format_value_short(total_transactions)}</div>
+            <div style="font-size: 0.8rem; color: #059669; background: rgba(5,150,105,0.1); padding: 2px 10px; border-radius: 20px; display: inline-block;">▲ 15.2%</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with kpi_col4:
+        st.markdown(f"""
+        <div style="
+            background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #7C3AED;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        ">
+            <div style="font-size: 2rem; margin-bottom: 5px;">📈</div>
+            <div style="font-size: 0.7rem; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Conversion</div>
+            <div style="font-size: 1.6rem; font-weight: 700; color: #1A1A2E; margin: 5px 0;">{avg_conversion:.1f}%</div>
+            <div style="font-size: 0.8rem; color: #059669; background: rgba(5,150,105,0.1); padding: 2px 10px; border-radius: 20px; display: inline-block;">▲ 3.2%</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with kpi_col5:
+        st.markdown(f"""
+        <div style="
+            background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #DB2777;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        ">
+            <div style="font-size: 2rem; margin-bottom: 5px;">🧺</div>
+            <div style="font-size: 0.7rem; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Avg Basket</div>
+            <div style="font-size: 1.6rem; font-weight: 700; color: #1A1A2E; margin: 5px 0;">{format_value_short(avg_basket)}</div>
+            <div style="font-size: 0.8rem; color: #059669; background: rgba(5,150,105,0.1); padding: 2px 10px; border-radius: 20px; display: inline-block;">▲ 5.8%</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    with kpi_col6:
+        st.markdown(f"""
+        <div style="
+            background: linear-gradient(145deg, #FFFFFF 0%, #F8FAFC 100%);
+            border: 2px solid #E5E7EB;
+            border-radius: 16px;
+            padding: 20px 15px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-bottom: 4px solid #0891B2;
+            height: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        ">
+            <div style="font-size: 2rem; margin-bottom: 5px;">📐</div>
+            <div style="font-size: 0.7rem; color: #6B7280; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Sales/Sqft</div>
+            <div style="font-size: 1.6rem; font-weight: 700; color: #1A1A2E; margin: 5px 0;">{format_value_short(sales_per_sqft)}</div>
+            <div style="font-size: 0.8rem; color: #059669; background: rgba(5,150,105,0.1); padding: 2px 10px; border-radius: 20px; display: inline-block;">▲ 7.1%</div>
+        </div>
+        """, unsafe_allow_html=True)
+    
+    st.markdown("<br>", unsafe_allow_html=True)
     
     # ========================================
     # TABS
